@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const calcGrams = document.getElementById("calcGrams");
   const calcMonthly = document.getElementById("calcMonthly");
   if (calcTabs.length && calcCost && calcMonths && calcGrams && calcMonthly) {
-    const GOLD_PRICE_PER_GRAM = 420; // indicative RM/g, shown live in the app
+    const GOLD_PRICE_PER_GRAM = 500; // indicative RM/g, shown live in the app
     const formatMYR = (n) => "RM " + Math.round(n).toLocaleString();
     let activeTab = document.querySelector(".calc-tab.is-active");
 
@@ -159,7 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.classList.add("is-active");
         const step = btn.dataset.step;
         phoneScreens.forEach((screen) => {
-          screen.hidden = screen.dataset.screen !== step;
+          const active = screen.dataset.screen === step;
+          screen.classList.toggle("is-active", active);
+          screen.setAttribute("aria-hidden", active ? "false" : "true");
         });
       });
     });

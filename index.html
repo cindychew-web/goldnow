@@ -66,6 +66,8 @@
           <button class="calc-tab is-active" type="button" role="tab" aria-selected="true" data-goal="umrah" data-cost="12000" data-label="Umrah Package (14D)">Umrah</button>
           <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="education" data-cost="450000" data-label="3-Year UK Degree">Study in UK</button>
           <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="medical" data-cost="20000" data-label="Private Hospital Stay">Medical</button>
+          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="wedding" data-cost="60000" data-label="Malaysian Wedding">Wedding</button>
+          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="vacation" data-cost="18000" data-label="Dream Vacation (Family)">Vacation</button>
         </div>
 
         <div class="calc-body">
@@ -76,22 +78,22 @@
 
           <div class="calc-slider-row">
             <label for="calcMonths">Timeline</label>
-            <input type="range" id="calcMonths" min="3" max="60" step="1" value="12">
+            <input type="range" id="calcMonths" min="3" max="120" step="1" value="12">
             <strong id="calcMonthsLabel" class="tabular">12 months</strong>
           </div>
 
           <div class="calc-result">
             <div>
               <span>You'll need to save</span>
-              <strong id="calcGrams" class="tabular">~28.6g</strong>
+              <strong id="calcGrams" class="tabular">~24.0g</strong>
             </div>
             <div>
               <span>That's about</span>
-              <strong id="calcMonthly" class="tabular">~2.38g / RM 1,000 per month</strong>
+              <strong id="calcMonthly" class="tabular">~2.00g / RM 1,000 per month</strong>
             </div>
           </div>
 
-          <p class="calc-note">Indicative estimate based on a gold price of RM 420/g and typical Malaysian costs. Live pricing shown in the app.</p>
+          <p class="calc-note">Indicative estimate based on a gold price of RM 500/g and typical Malaysian costs. Up to 120 months. Live pricing shown in the app.</p>
           <a href="#download" class="btn btn-primary">Start This Pot</a>
         </div>
       </div>
@@ -258,64 +260,77 @@
       </ol>
     </div>
 
-    <div class="phone-frame">
-      <div class="phone-frame__notch"></div>
-
-      <div class="phone-screen" data-screen="1">
-        <span class="phone-screen-title">Create Your Goal</span>
-        <div class="phone-field phone-field--selected">
-          <label>Goal Name</label>
-          <strong>Umrah Fund</strong>
-        </div>
-        <div class="phone-field">
-          <label>Target</label>
-          <strong>85g &middot; RM 24,500</strong>
-        </div>
-        <div class="phone-field">
-          <label>Timeline</label>
-          <strong>18 months</strong>
-        </div>
-        <button class="btn btn-primary" type="button">Continue</button>
+    <div class="phone-stage">
+      <div class="phone-badge phone-badge--top">
+        <span class="dot"></span>
+        999.9 Purity &middot; Insured
+      </div>
+      <div class="phone-badge phone-badge--bottom">
+        <span class="dot dot-gold"></span>
+        2,000+ Savers Growing Gold
       </div>
 
-      <div class="phone-screen" data-screen="2" hidden>
-        <span class="phone-screen-title">Link Your Card</span>
-        <div class="phone-field phone-field--selected phone-field-row">
-          <div>
-            <label>Payment Method</label>
-            <strong>Debit Card &middot; •••• 4821</strong>
-          </div>
-          <span class="phone-radio"></span>
-        </div>
-        <div class="phone-field phone-field-row">
-          <div>
-            <label>Payment Method</label>
-            <strong>Credit Card &middot; •••• 1190</strong>
-          </div>
-          <span class="phone-radio"></span>
-        </div>
-        <div class="phone-field">
-          <label>Charge Day</label>
-          <strong>1st of every month</strong>
-        </div>
-        <button class="btn btn-primary" type="button">Link Card</button>
-      </div>
+      <div class="phone-frame">
+        <div class="phone-frame__notch"></div>
 
-      <div class="phone-screen" data-screen="3" hidden>
-        <span class="phone-screen-title">Watch It Grow</span>
-        <div>
-          <span class="phone-growth-figure tabular">85.2g</span>
-          <div class="phone-growth-delta">+2.4g this month</div>
+        <div class="phone-screen-stack">
+          <div class="phone-screen is-active" data-screen="1">
+            <span class="phone-screen-title">Create Your Goal</span>
+            <div class="phone-field phone-field--selected">
+              <label>Goal Name</label>
+              <strong>Umrah Fund</strong>
+            </div>
+            <div class="phone-field">
+              <label>Target</label>
+              <strong>85g &middot; RM 24,500</strong>
+            </div>
+            <div class="phone-field">
+              <label>Timeline</label>
+              <strong>18 months</strong>
+            </div>
+            <button class="btn btn-primary" type="button">Continue</button>
+          </div>
+
+          <div class="phone-screen" data-screen="2">
+            <span class="phone-screen-title">Link Your Card</span>
+            <div class="phone-field phone-field--selected phone-field-row">
+              <div>
+                <label>Payment Method</label>
+                <strong>Debit Card &middot; •••• 4821</strong>
+              </div>
+              <span class="phone-radio"></span>
+            </div>
+            <div class="phone-field phone-field-row">
+              <div>
+                <label>Payment Method</label>
+                <strong>Credit Card &middot; •••• 1190</strong>
+              </div>
+              <span class="phone-radio"></span>
+            </div>
+            <div class="phone-field">
+              <label>Charge Day</label>
+              <strong>1st of every month</strong>
+            </div>
+            <button class="btn btn-primary" type="button">Link Card</button>
+          </div>
+
+          <div class="phone-screen" data-screen="3">
+            <span class="phone-screen-title">Watch It Grow</span>
+            <div>
+              <span class="phone-growth-figure tabular">85.2g</span>
+              <div class="phone-growth-delta">+2.4g this month</div>
+            </div>
+            <div class="phone-field">
+              <label>Umrah Fund</label>
+              <div class="pot-bar" style="margin-top:6px;"><span style="width:71%"></span></div>
+            </div>
+            <div class="phone-field">
+              <label>Next Auto-Buy</label>
+              <strong>1 Sep 2026</strong>
+            </div>
+            <button class="btn btn-primary" type="button">View All Pots</button>
+          </div>
         </div>
-        <div class="phone-field">
-          <label>Umrah Fund</label>
-          <div class="pot-bar" style="margin-top:6px;"><span style="width:71%"></span></div>
-        </div>
-        <div class="phone-field">
-          <label>Next Auto-Buy</label>
-          <strong>1 Sep 2026</strong>
-        </div>
-        <button class="btn btn-primary" type="button">View All Pots</button>
       </div>
     </div>
   </div>
