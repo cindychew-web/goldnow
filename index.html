@@ -56,50 +56,44 @@
     </div>
 
     <div class="hero-visual reveal">
-      <div class="ledger-card">
-        <div class="ledger-card__head">
-          <div>
-            <div class="ledger-card__label">Total Gold Saved</div>
-            <div class="ledger-card__total"><span id="totalGrams">0.0</span><sup>grams</sup></div>
-          </div>
-          <div class="ledger-card__badge">
-            <span id="activePots">0</span>
-            <small>Active Pots</small>
-          </div>
+      <div class="calc-card">
+        <div class="calc-card__head">
+          <span class="calc-card__label">Goal Calculator</span>
+          <h3>How much gold do I need?</h3>
         </div>
 
-        <div class="pot-row">
-          <span class="pot-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/><path d="M12 3v2"/></svg>
-          </span>
-          <div class="pot-info">
-            <div class="pot-name">Medical Fund</div>
-            <div class="pot-bar"><span style="width:62%"></span></div>
-          </div>
-          <span class="pot-pct tabular">62%</span>
-        </div>
-        <div class="pot-row">
-          <span class="pot-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
-          </span>
-          <div class="pot-info">
-            <div class="pot-name">Education Fund</div>
-            <div class="pot-bar"><span style="width:40%"></span></div>
-          </div>
-          <span class="pot-pct tabular">40%</span>
-        </div>
-        <div class="pot-row">
-          <span class="pot-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a5.5 5.5 0 1 0 1.8 10.7A7 7 0 1 1 12 4.2 5.5 5.5 0 0 1 17 3z"/></svg>
-          </span>
-          <div class="pot-info">
-            <div class="pot-name">Umrah Fund</div>
-            <div class="pot-bar"><span style="width:81%"></span></div>
-          </div>
-          <span class="pot-pct tabular">81%</span>
+        <div class="calc-tabs" role="tablist">
+          <button class="calc-tab is-active" type="button" role="tab" aria-selected="true" data-goal="umrah" data-cost="12000" data-label="Umrah Package (14D)">Umrah</button>
+          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="education" data-cost="450000" data-label="3-Year UK Degree">Study in UK</button>
+          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="medical" data-cost="20000" data-label="Private Hospital Stay">Medical</button>
         </div>
 
-        <button class="ledger-card__cta">+ Add New Pot</button>
+        <div class="calc-body">
+          <div class="calc-row">
+            <span>Estimated cost</span>
+            <strong id="calcCost" class="tabular">RM 12,000 &middot; Umrah Package (14D)</strong>
+          </div>
+
+          <div class="calc-slider-row">
+            <label for="calcMonths">Timeline</label>
+            <input type="range" id="calcMonths" min="3" max="60" step="1" value="12">
+            <strong id="calcMonthsLabel" class="tabular">12 months</strong>
+          </div>
+
+          <div class="calc-result">
+            <div>
+              <span>You'll need to save</span>
+              <strong id="calcGrams" class="tabular">~28.6g</strong>
+            </div>
+            <div>
+              <span>That's about</span>
+              <strong id="calcMonthly" class="tabular">~2.38g / RM 1,000 per month</strong>
+            </div>
+          </div>
+
+          <p class="calc-note">Indicative estimate based on a gold price of RM 420/g and typical Malaysian costs. Live pricing shown in the app.</p>
+          <a href="#download" class="btn btn-primary">Start This Pot</a>
+        </div>
       </div>
     </div>
   </div>
@@ -114,11 +108,11 @@
     </div>
 
     <div class="stats-strip">
-      <p class="eyebrow">By the Numbers</p>
+      <p class="stats-lead">Over</p>
       <span class="stats-count" data-target="2000" data-suffix="+">2,000+</span>
+      <p class="stats-lead">people have fulfilled their dreams through a GoldNow savings pot.</p>
       <p class="stats-desc">
-        <strong>Malaysians trust GoldNow</strong> to grow their savings in real gold —
-        backed by <span class="plum-tag">Tomei Group</span>, Malaysia's trusted name in gold since 1975.
+        Backed by <span class="plum-tag">Tomei Group</span>, Malaysia's trusted name in gold since 1975.
         Every gram saved is <strong>certified 999.9 purity</strong> and held as
         <strong>fully allocated gold</strong> in audited, insured vaults — never pooled, never leveraged.
       </p>
@@ -134,17 +128,17 @@
     <div class="feature-columns">
       <div class="feature-col">
         <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 0 0-14.9-4"/><path d="M20 3v4h-4"/><path d="M4 13a8 8 0 0 0 14.9 4"/><path d="M4 21v-4h4"/></svg>
-        </div>
-        <h3>Auto-Debit Feature</h3>
-        <p>Link your debit or credit card and set a schedule — GoldNow automatically charges your card and converts your savings into gold every month, no manual top-ups needed.</p>
-      </div>
-      <div class="feature-col">
-        <div class="feature-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="6" height="13" rx="1"/><rect x="9.5" y="4" width="6" height="17" rx="1"/><rect x="16" y="11" width="6" height="10" rx="1"/></svg>
         </div>
         <h3>Multiple Savings Pot</h3>
         <p>Create separate pots for every goal, from a wedding to a dream vacation, and track each one independently.</p>
+      </div>
+      <div class="feature-col">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 0 0-14.9-4"/><path d="M20 3v4h-4"/><path d="M4 13a8 8 0 0 0 14.9 4"/><path d="M4 21v-4h4"/></svg>
+        </div>
+        <h3>Auto-Debit Feature</h3>
+        <p>Link your debit or credit card and set a schedule — GoldNow automatically charges your card and converts your savings into gold every month, no manual top-ups needed.</p>
       </div>
       <div class="feature-col">
         <div class="feature-icon">
@@ -230,7 +224,7 @@
         </button>
       </div>
       <div class="usecases-cta">
-        <a href="#download" class="btn btn-primary">Create Your First Pot</a>
+        <a href="#download" class="btn btn-primary btn-hero">Create Your First Pot &rarr;</a>
       </div>
     </div>
   </div>
@@ -414,7 +408,7 @@
       <div class="comparison-copy">
         <p class="eyebrow">Comparison</p>
         <h2>Thinking about switching to GoldNow?</h2>
-        <p>See how saving with GoldNow stacks up against physical gold and a standard savings account.</p>
+        <p>See how saving with GoldNow stacks up against physical gold, a standard savings account, and a gold ETF.</p>
         <a href="#download" class="btn btn-primary">Start Now</a>
       </div>
 
@@ -428,20 +422,21 @@
                 <th class="th-goldnow">GoldNow</th>
                 <th>Physical Gold</th>
                 <th>Standard Savings</th>
+                <th>Gold ETF</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Direct Gold Ownership</td><td class="cell-goldnow">✔</td><td class="mark-yes">✔</td><td class="mark-no">✘</td></tr>
-              <tr><td>24/7 Access &amp; Trading</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-no">✘</td></tr>
-              <tr><td>Mobile App</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-partial">~</td></tr>
-              <tr><td>Multiple Savings Pots</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-partial">~</td></tr>
-              <tr><td>Auto-Debit / Recurring Savings</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-yes">✔</td></tr>
-              <tr><td>Physical Redemption</td><td class="cell-goldnow">✔</td><td class="mark-yes">✔</td><td class="mark-no">✘</td></tr>
-              <tr><td>Storage &amp; Security</td><td class="cell-goldnow">✔</td><td class="mark-partial">~</td><td class="mark-yes">✔</td></tr>
-              <tr><td>Storage / Management Fees</td><td class="cell-goldnow">Low</td><td>High</td><td>None</td></tr>
-              <tr><td>Ease of Use</td><td class="cell-goldnow">Instant</td><td>Slow</td><td>Instant</td></tr>
-              <tr><td>Capital Growth Potential</td><td class="cell-goldnow">✔</td><td class="mark-yes">✔</td><td class="mark-no">✘</td></tr>
-              <tr><td>Instant Liquidity</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-yes">✔</td></tr>
+              <tr><td>Direct Gold Ownership</td><td class="cell-goldnow">✔</td><td class="mark-yes">✔</td><td class="mark-no">✘</td><td class="mark-partial">~</td></tr>
+              <tr><td>Multiple Savings Pots</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-partial">~</td><td class="mark-no">✘</td></tr>
+              <tr><td>Auto-Debit / Recurring Savings</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-yes">✔</td><td class="mark-partial">~</td></tr>
+              <tr><td>Physical Redemption</td><td class="cell-goldnow">✔</td><td class="mark-yes">✔</td><td class="mark-no">✘</td><td class="mark-no">✘</td></tr>
+              <tr><td>Storage &amp; Security</td><td class="cell-goldnow">✔</td><td class="mark-partial">~</td><td class="mark-yes">✔</td><td class="mark-yes">✔</td></tr>
+              <tr><td>Storage / Management Fees</td><td class="cell-goldnow">Low</td><td>High</td><td>None</td><td>Low–Med</td></tr>
+              <tr><td>Ease of Use</td><td class="cell-goldnow">Instant</td><td>Slow</td><td>Instant</td><td>Moderate</td></tr>
+              <tr><td>Preservation of Value</td><td class="cell-goldnow">✔</td><td class="mark-yes">✔</td><td class="mark-no">✘</td><td class="mark-yes">✔</td></tr>
+              <tr><td>Hedge Against Inflation</td><td class="cell-goldnow">✔</td><td class="mark-yes">✔</td><td class="mark-no">✘</td><td class="mark-yes">✔</td></tr>
+              <tr><td>No Lock-In / Early Withdrawal Penalty</td><td class="cell-goldnow">✔</td><td class="mark-partial">~</td><td class="mark-partial">~</td><td class="mark-yes">✔</td></tr>
+              <tr><td>Instant Liquidity</td><td class="cell-goldnow">✔</td><td class="mark-no">✘</td><td class="mark-yes">✔</td><td class="mark-partial">~</td></tr>
             </tbody>
           </table>
         </div>

@@ -117,6 +117,15 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
   border-color: rgba(255, 255, 255, 0.4);
 }
 .btn-outline:hover { border-color: var(--gold); background: rgba(255, 207, 123, 0.08); }
+.btn-hero {
+  padding: 19px 42px;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  background: linear-gradient(120deg, var(--plum) 0%, var(--gold) 100%);
+  color: var(--black);
+  box-shadow: 0 14px 30px rgba(142, 35, 108, 0.3);
+}
+.btn-hero:hover { box-shadow: 0 18px 36px rgba(142, 35, 108, 0.4); }
 
 /* ---------- reveal-on-scroll ---------- */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
@@ -192,53 +201,50 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .store-badge span { display: flex; flex-direction: column; line-height: 1.25; font-weight: 700; font-size: 13px; font-family: var(--font-body); }
 .store-badge small { font-weight: 400; font-size: 9.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--on-ink-muted); }
 
-/* ---------- Passbook card ---------- */
-.ledger-card {
+/* ---------- Goal calculator (hero) ---------- */
+.calc-card {
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: var(--shadow-lift);
   overflow: hidden;
 }
-.ledger-card__head {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  padding: 26px 26px 20px;
-  border-bottom: 1px solid var(--line);
+.calc-card__head {
+  padding: 26px 26px 6px;
   background: linear-gradient(135deg, rgba(142,35,108,0.06), rgba(255,207,123,0.1));
 }
-.ledger-card__label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 8px; font-family: var(--font-body); }
-.ledger-card__total { font-family: var(--font-heading); font-size: 2rem; font-weight: 400; font-variant-numeric: tabular-nums; }
-.ledger-card__total sup { font-family: var(--font-body); font-size: 0.85rem; font-weight: 400; color: var(--text-muted); margin-left: 2px; }
-.ledger-card__badge {
-  display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
-  font-family: var(--font-heading); font-size: 1.05rem; color: var(--plum);
-}
-.ledger-card__badge small { font-family: var(--font-body); color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+.calc-card__label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-family: var(--font-body); font-weight: 700; }
+.calc-card__head h3 { font-size: 1.2rem; margin: 6px 0 20px; }
 
-.pot-row {
-  display: flex; align-items: center; gap: 14px;
-  padding: 16px 26px;
-  border-bottom: 1px solid var(--line);
+.calc-tabs { display: flex; gap: 6px; padding: 0 20px 20px; }
+.calc-tab {
+  flex: 1; padding: 9px 6px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--surface-alt); color: var(--text-muted); font-size: 12.5px; font-weight: 700;
+  cursor: pointer; font-family: var(--font-body); transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
-.pot-row:last-of-type { border-bottom: none; }
-.pot-icon {
-  width: 34px; height: 34px; border-radius: 10px;
-  background: var(--surface-alt); color: var(--plum);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.calc-tab.is-active { background: var(--plum); color: var(--white); border-color: var(--plum); }
+.calc-tab:hover:not(.is-active) { border-color: var(--plum); color: var(--plum); }
+
+.calc-body { padding: 4px 26px 26px; display: flex; flex-direction: column; gap: 16px; }
+.calc-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--text-muted); font-family: var(--font-body); }
+.calc-row strong { color: var(--text); font-size: 14px; text-align: right; }
+
+.calc-slider-row { display: flex; flex-direction: column; gap: 8px; }
+.calc-slider-row label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-family: var(--font-body); font-weight: 700; }
+.calc-slider-row input[type="range"] { width: 100%; accent-color: var(--plum); }
+.calc-slider-row strong { align-self: flex-end; font-size: 13px; color: var(--plum); }
+
+.calc-result {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  background: var(--surface-alt); border: 1px solid var(--line); border-radius: 12px; padding: 16px;
 }
-.pot-info { flex: 1; min-width: 0; }
-.pot-name { font-size: 13.5px; font-weight: 700; margin-bottom: 7px; font-family: var(--font-body); }
-.pot-bar { background: var(--line); height: 6px; border-radius: 3px; overflow: hidden; }
-.pot-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--plum), var(--gold)); }
-.pot-pct { font-family: var(--font-body); font-size: 12.5px; font-weight: 700; color: var(--text-muted); width: 38px; text-align: right; flex-shrink: 0; }
-.ledger-card__cta {
-  display: block; width: 100%; text-align: center;
-  padding: 15px; border: none; border-top: 1px dashed var(--line);
-  background: transparent; color: var(--plum); font-weight: 700; font-size: 13.5px;
-  cursor: pointer; letter-spacing: 0.02em; font-family: var(--font-body);
-}
-.ledger-card__cta:hover { background: var(--surface-alt); }
+.calc-result div { display: flex; flex-direction: column; gap: 4px; }
+.calc-result span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-family: var(--font-body); }
+.calc-result strong { font-family: var(--font-heading); font-size: 1.15rem; color: var(--text); }
+
+.calc-note { font-size: 11.5px; color: var(--text-muted); font-family: var(--font-body); line-height: 1.5; }
+.calc-body .btn { width: 100%; justify-content: center; }
 
 /* ---------- Solution & Use Cases ---------- */
 .solution { padding: 96px 0; background: var(--surface); }
@@ -248,9 +254,8 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .section-head h2 { font-size: var(--step-3); margin-bottom: 14px; }
 
 /* ---------- Stats strip (boxless, count-up on scroll) ---------- */
-.stats-strip { max-width: 700px; margin: 0 auto 72px; text-align: center; }
-.stats-strip .eyebrow { justify-content: center; }
-.stats-strip .eyebrow::before { display: none; }
+.stats-strip { max-width: 640px; margin: 0 auto 72px; text-align: center; }
+.stats-lead { font-size: 17px; color: var(--text); font-family: var(--font-body); font-weight: 700; max-width: 30ch; margin: 0 auto; }
 .stats-count {
   font-family: var(--font-heading);
   font-size: clamp(3.2rem, 9vw, 5.5rem);
@@ -261,9 +266,9 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
   background-clip: text;
   color: transparent;
   display: inline-block;
-  margin-bottom: 22px;
+  margin: 10px 0;
 }
-.stats-desc { font-size: 15px; color: var(--text-muted); font-family: var(--font-body); max-width: 56ch; margin: 0 auto; }
+.stats-desc { font-size: 14px; color: var(--text-muted); font-family: var(--font-body); max-width: 56ch; margin: 18px auto 0; }
 .stats-desc strong { color: var(--text); }
 .stats-desc .plum-tag { color: var(--plum); font-weight: 700; }
 
@@ -409,6 +414,8 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .phone-growth-figure { font-family: var(--font-heading); font-size: 2.1rem; font-variant-numeric: tabular-nums; }
 .phone-growth-delta { color: var(--plum); font-size: 12.5px; font-weight: 700; font-family: var(--font-body); }
 .phone-screen .btn { width: 100%; justify-content: center; margin-top: auto; }
+.pot-bar { background: var(--line); height: 6px; border-radius: 3px; overflow: hidden; }
+.pot-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--plum), var(--gold)); }
 
 /* ---------- Testimonials ---------- */
 .testimonials { padding: 96px 0; background: var(--surface); }
@@ -440,7 +447,7 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .ledger-table-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 6px; }
 .ledger-table-note { text-align: center; color: var(--text-muted); font-size: 12.5px; padding: 16px 16px 12px; max-width: 46ch; margin: 0 auto; font-family: var(--font-body); }
 .table-scroll { overflow-x: auto; }
-.ledger-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 580px; font-family: var(--font-body); }
+.ledger-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 680px; font-family: var(--font-body); }
 .ledger-table th, .ledger-table td { padding: 13px 16px; text-align: center; border-bottom: 1px solid var(--line); }
 .ledger-table td:first-child { text-align: left; font-weight: 700; }
 .ledger-table thead th {

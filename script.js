@@ -86,15 +86,41 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   };
 
-  // ---- ledger balance count-up (on load) ----
-  const gramsEl = document.getElementById("totalGrams");
-  const potsEl = document.getElementById("activePots");
-  if (gramsEl && potsEl) {
-    gramsEl.dataset.target = "1286.4";
-    gramsEl.dataset.decimals = "1";
-    potsEl.dataset.target = "5";
-    animateCount(gramsEl, { duration: 1100 });
-    animateCount(potsEl, { duration: 1100 });
+  // ---- hero goal calculator ----
+  const calcTabs = document.querySelectorAll(".calc-tab");
+  const calcCost = document.getElementById("calcCost");
+  const calcMonths = document.getElementById("calcMonths");
+  const calcMonthsLabel = document.getElementById("calcMonthsLabel");
+  const calcGrams = document.getElementById("calcGrams");
+  const calcMonthly = document.getElementById("calcMonthly");
+  if (calcTabs.length && calcCost && calcMonths && calcGrams && calcMonthly) {
+    const GOLD_PRICE_PER_GRAM = 420; // indicative RM/g, shown live in the app
+    const formatMYR = (n) => "RM " + Math.round(n).toLocaleString();
+    let activeTab = document.querySelector(".calc-tab.is-active");
+
+    const update = () => {
+      const cost = parseFloat(activeTab.dataset.cost);
+      const months = parseInt(calcMonths.value, 10);
+      const totalGrams = cost / GOLD_PRICE_PER_GRAM;
+      const monthlyGrams = totalGrams / months;
+      const monthlyMYR = cost / months;
+      calcCost.textContent = `${formatMYR(cost)} · ${activeTab.dataset.label}`;
+      calcMonthsLabel.textContent = `${months} month${months === 1 ? "" : "s"}`;
+      calcGrams.textContent = `~${totalGrams.toFixed(1)}g`;
+      calcMonthly.textContent = `~${monthlyGrams.toFixed(2)}g / ${formatMYR(monthlyMYR)} per month`;
+    };
+
+    calcTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        calcTabs.forEach((t) => { t.classList.remove("is-active"); t.setAttribute("aria-selected", "false"); });
+        tab.classList.add("is-active");
+        tab.setAttribute("aria-selected", "true");
+        activeTab = tab;
+        update();
+      });
+    });
+    calcMonths.addEventListener("input", update);
+    update();
   }
 
   // ---- stats count-up (triggered on scroll into view) ----
