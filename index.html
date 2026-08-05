@@ -10,7 +10,12 @@
 
 <header class="topbar">
   <div class="container topbar-inner">
-    <div class="wordmark">Gold<em>Now</em></div>
+    <div class="wordmark">
+      <span class="brandmark">
+        <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="50" fill="#8e236c"/><path d="M50,0 A50,50 0 0,1 50,100 A25,25 0 1,1 50,50 A25,25 0 1,0 50,0 Z" fill="#ffcf7b"/></svg>
+      </span>
+      Gold<em>Now</em>
+    </div>
     <div class="topbar-cta">
       <span class="topbar-text">Get the best experience on our app</span>
       <div class="stamp-row">
@@ -106,7 +111,17 @@
     <div class="section-head">
       <p class="eyebrow">Solution &amp; Use Cases</p>
       <h2>One app, every gold-saving goal</h2>
-      <p class="trust-line">2000+ customers trust <strong>GoldNow</strong></p>
+    </div>
+
+    <div class="trust-banner">
+      <div class="trust-banner__count">2,000+<small>Customers</small></div>
+      <div class="trust-banner__divider"></div>
+      <p>
+        <strong>2,000+ Malaysians trust GoldNow</strong> to grow their savings in real gold —
+        backed by <span class="plum-tag">Tomei Group</span>, Malaysia's trusted name in gold since 1975.
+        Every gram saved is <strong>certified 999.9 purity</strong> and held as
+        <strong>fully allocated gold</strong> in audited, insured vaults — never pooled, never leveraged.
+      </p>
     </div>
 
     <div class="explainer">
@@ -122,7 +137,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 0 0-14.9-4"/><path d="M20 3v4h-4"/><path d="M4 13a8 8 0 0 0 14.9 4"/><path d="M4 21v-4h4"/></svg>
         </div>
         <h3>Auto-Debit Feature</h3>
-        <p>Set a schedule and let GoldNow automatically debit and convert your savings into gold — no manual top-ups needed.</p>
+        <p>Link your debit or credit card and set a schedule — GoldNow automatically charges your card and converts your savings into gold every month, no manual top-ups needed.</p>
       </div>
       <div class="feature-col">
         <div class="feature-icon">
@@ -141,36 +156,167 @@
     </div>
 
     <div class="usecases">
-      <h3 class="usecases-title">Built for life's biggest moments</h3>
+      <div class="usecases-head">
+        <h3 class="usecases-title">Built for life's biggest moments</h3>
+        <p class="usecases-sub">Typical grammage and timeline other GoldNow savers set for each goal.</p>
+      </div>
       <div class="slider" id="usecaseSlider">
         <button class="slider-arrow slider-arrow--prev" aria-label="Previous">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
         </button>
         <div class="slider-track" id="sliderTrack">
-          <div class="usecase-card">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/><path d="M12 3v2"/></svg>
-            <span>Medical Fund</span>
+          <div class="usecase-card usecase-card--plum">
+            <div class="usecase-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/><path d="M12 3v2"/></svg>
+            </div>
+            <span class="usecase-name">Medical Fund</span>
+            <div class="usecase-stats">
+              <span class="grams tabular">~45g</span>
+              <small>in 12 months</small>
+            </div>
           </div>
-          <div class="usecase-card">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
-            <span>Education Fund</span>
+          <div class="usecase-card usecase-card--gold">
+            <div class="usecase-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
+            </div>
+            <span class="usecase-name">Education Fund</span>
+            <div class="usecase-stats">
+              <span class="grams tabular">~120g</span>
+              <small>in 3 years</small>
+            </div>
           </div>
-          <div class="usecase-card">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 3a5.5 5.5 0 1 0 1.8 10.7A7 7 0 1 1 12 4.2 5.5 5.5 0 0 1 17 3z"/></svg>
-            <span>Umrah Fund</span>
+          <div class="usecase-card usecase-card--black">
+            <div class="usecase-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3a5.5 5.5 0 1 0 1.8 10.7A7 7 0 1 1 12 4.2 5.5 5.5 0 0 1 17 3z"/></svg>
+            </div>
+            <span class="usecase-name">Umrah Fund</span>
+            <div class="usecase-stats">
+              <span class="grams tabular">~85g</span>
+              <small>in 18 months</small>
+            </div>
           </div>
-          <div class="usecase-card">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="13" r="5"/><circle cx="16" cy="13" r="5"/></svg>
-            <span>Wedding Fund</span>
+          <div class="usecase-card usecase-card--plum">
+            <div class="usecase-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="13" r="5"/><circle cx="16" cy="13" r="5"/></svg>
+            </div>
+            <span class="usecase-name">Wedding Fund</span>
+            <div class="usecase-stats">
+              <span class="grams tabular">~150g</span>
+              <small>in 24 months</small>
+            </div>
           </div>
-          <div class="usecase-card">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 15l7-2 8-8 3 3-8 8-2 7-3-3-3 3-1-4-4-1 3-3z"/></svg>
-            <span>Dream Vacation</span>
+          <div class="usecase-card usecase-card--gold">
+            <div class="usecase-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 15l7-2 8-8 3 3-8 8-2 7-3-3-3 3-1-4-4-1 3-3z"/></svg>
+            </div>
+            <span class="usecase-name">Dream Vacation</span>
+            <div class="usecase-stats">
+              <span class="grams tabular">~30g</span>
+              <small>in 6 months</small>
+            </div>
           </div>
         </div>
         <button class="slider-arrow slider-arrow--next" aria-label="Next">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
         </button>
+      </div>
+      <div class="usecases-cta">
+        <a href="#download" class="btn btn-primary">Create Your First Pot</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION: 3 STEPS ============ -->
+<section class="steps">
+  <div class="container steps-grid">
+    <div>
+      <p class="eyebrow">Getting Started</p>
+      <h2>3 Steps to Start Saving Gold</h2>
+      <ol class="steps-list">
+        <li>
+          <span class="step-num">1</span>
+          <span class="step-copy"><strong>Create your goal</strong><span>Set your target, timeline, and name it.</span></span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span class="step-copy"><strong>Link your card</strong><span>Choose debit or credit, pick your charge day.</span></span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span class="step-copy"><strong>Sit back and watch it grow</strong><span>GoldNow auto-buys every month.</span></span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="invest-card">
+      <div class="invest-card__inner">
+        <p class="eyebrow">Invest With Confidence</p>
+        <h3>How to Invest in Digital Gold Online</h3>
+        <p>Every gram is 100% backed by certified 999.9 purity allocated gold, held in audited, insured vaults.</p>
+        <div class="invest-steps">
+          <div>Browse Metals</div>
+          <div>Enter Your Amount</div>
+          <div>Secure Checkout</div>
+          <div class="is-active">Grow Your Balance<small>Track your holdings, top up anytime, and watch your balance grow.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION: TESTIMONIALS ============ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Testimonial</p>
+      <h2>See What Our Customers Say</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <span class="testimonial-stat">12 months auto-saved</span>
+        <p class="quote">I linked my debit card once and never thought about it again. Every month GoldNow just buys my gold — my Umrah fund built itself.</p>
+        <div class="testimonial-person">
+          <strong>Nurul A.</strong>
+          <span>Kuala Lumpur</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <span class="testimonial-stat">3 active pots</span>
+        <p class="quote">Having separate pots for my wedding and my parents' medical fund keeps me honest. I can see exactly how close each goal is.</p>
+        <div class="testimonial-person">
+          <strong>Aiman R.</strong>
+          <span>Petaling Jaya</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <span class="testimonial-stat">Redeemed in under 2 minutes</span>
+        <p class="quote">When I needed cash back out, withdrawal was instant. No branch visit, no waiting days like with physical gold.</p>
+        <div class="testimonial-person">
+          <strong>Farah I.</strong>
+          <span>Johor Bahru</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <span class="testimonial-stat">999.9 purity, always verified</span>
+        <p class="quote">Knowing it's backed by Tomei and every gram is fully allocated 999.9 gold gives me real peace of mind, not just a number on a screen.</p>
+        <div class="testimonial-person">
+          <strong>Wei Ling T.</strong>
+          <span>Penang</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <span class="testimonial-stat">24/7 in-app support</span>
+        <p class="quote">The app is simple enough for my parents to use, and support answered my questions on a Sunday night. That sold me.</p>
+        <div class="testimonial-person">
+          <strong>Hafiz M.</strong>
+          <span>Shah Alam</span>
+        </div>
       </div>
     </div>
   </div>
@@ -219,9 +365,73 @@
   </div>
 </section>
 
+<!-- ============ SECTION: FAQ + CTA ============ -->
+<section class="faq-cta">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <p class="eyebrow">Start Today &middot; It's Free</p>
+        <h2>Start Building Your Gold Balance Today</h2>
+        <p>Buy, save, and redeem real 999.9 purity gold — all from one app. Free to download, verify once, start in minutes.</p>
+        <div class="store-badges">
+          <a href="#" class="store-badge">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.23-3.91-1.22-1.78-3.11-2.02-3.78-2.05-1.6-.16-3.13.94-3.94.94-.82 0-2.06-.92-3.4-.9-1.75.03-3.36 1.02-4.26 2.58-1.82 3.15-.46 7.8 1.3 10.36.87 1.24 1.9 2.64 3.25 2.59 1.31-.05 1.8-.84 3.38-.84 1.57 0 2.02.84 3.4.81 1.4-.02 2.29-1.26 3.15-2.51.99-1.44 1.4-2.83 1.42-2.9-.03-.01-2.72-1.05-2.75-4.17zM14.6 4.24c.72-.87 1.2-2.08 1.07-3.29-1.04.04-2.3.69-3.04 1.56-.67.77-1.25 2.01-1.09 3.19 1.16.09 2.35-.59 3.06-1.46z"/></svg>
+            <span><small>Download on the</small>App Store</span>
+          </a>
+          <a href="#" class="store-badge">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.7-.5 1.2v17c0 .5.2.9.5 1.2l.1.1L13.6 12 3.7 2.2z"/><path d="M17 8.4l-3-1.7-3.9 3.9 3.9 3.9 3-1.7c1-.6 1-2 0-2.6z" opacity=".65"/><path d="M14 6.7l3 1.7c1 .6 1 2 0 2.6l-3 1.7-3.4-3.4z" opacity=".85"/><path d="M3.7 21.8c.2.1.5.1.8 0l10-5.8-3.1-3.1z"/></svg>
+            <span><small>Get it on</small>Google Play</span>
+          </a>
+        </div>
+      </div>
+      <div class="cta-banner-visual">
+        <div class="gold-stack">
+          <div class="gold-bar"></div>
+          <div class="gold-bar"></div>
+          <div class="gold-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-wrap">
+      <div class="faq-head">
+        <p class="eyebrow" style="justify-content:center">Questions</p>
+        <h3>Everything you ask before you start</h3>
+        <p>Still unsure? <a href="#download" style="color: var(--plum); font-weight:700;">Talk to the team</a>.</p>
+      </div>
+
+      <details class="faq-item">
+        <summary>What is GoldNow?</summary>
+        <p>GoldNow is a savings app by Tomei Group that lets you buy, save, and redeem real 999.9 purity gold in small amounts, split across multiple goal-based pots.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is GoldNow different from buying physical gold?</summary>
+        <p>You save in any amount, anytime, with no storage risk. Your gold is fully allocated and insured in Tomei's vaults, and you can redeem or withdraw instantly from the app instead of visiting a store.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is my gold real and insured?</summary>
+        <p>Yes. Every gram is certified 999.9 purity, fully allocated to you (never pooled or leveraged), and held in audited, insured vaults.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I withdraw or redeem my gold anytime?</summary>
+        <p>Yes, you can withdraw or redeem from any pot anytime directly in the app — most redemptions complete in under two minutes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How fast can I start saving?</summary>
+        <p>Download the app, verify your identity once, link a debit or credit card, and you can create your first savings pot in minutes.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <footer id="download" class="footer">
   <div class="container footer-inner">
-    <div class="wordmark">Gold<em>Now</em></div>
+    <div class="wordmark">
+      <span class="brandmark">
+        <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="50" fill="#8e236c"/><path d="M50,0 A50,50 0 0,1 50,100 A25,25 0 1,1 50,50 A25,25 0 1,0 50,0 Z" fill="#ffcf7b"/></svg>
+      </span>
+      Gold<em>Now</em>
+    </div>
     <p>Start building your gold savings pots today.</p>
     <div class="store-badges">
       <a href="#" class="store-badge">
@@ -233,7 +443,7 @@
         <span><small>Get it on</small>Google Play</span>
       </a>
     </div>
-    <p class="footer-copy">&copy; 2026 GoldNow. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 GoldNow by Tomei Group. All rights reserved.</p>
   </div>
 </footer>
 
