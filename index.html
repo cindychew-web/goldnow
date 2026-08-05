@@ -113,11 +113,11 @@
       <h2>One app, every gold-saving goal</h2>
     </div>
 
-    <div class="trust-banner">
-      <div class="trust-banner__count">2,000+<small>Customers</small></div>
-      <div class="trust-banner__divider"></div>
-      <p>
-        <strong>2,000+ Malaysians trust GoldNow</strong> to grow their savings in real gold —
+    <div class="stats-strip">
+      <p class="eyebrow">By the Numbers</p>
+      <span class="stats-count" data-target="2000" data-suffix="+">2,000+</span>
+      <p class="stats-desc">
+        <strong>Malaysians trust GoldNow</strong> to grow their savings in real gold —
         backed by <span class="plum-tag">Tomei Group</span>, Malaysia's trusted name in gold since 1975.
         Every gram saved is <strong>certified 999.9 purity</strong> and held as
         <strong>fully allocated gold</strong> in audited, insured vaults — never pooled, never leveraged.
@@ -153,6 +153,13 @@
         <h3>Track Pot Progress &amp; Withdraw Easily</h3>
         <p>See real-time progress on every pot and withdraw your gold savings anytime, right from the app.</p>
       </div>
+      <div class="feature-col">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c0 4-6 8-6 13a6 6 0 0 0 12 0c0-5-6-9-6-13z"/></svg>
+        </div>
+        <h3>Start From Just 0.1g</h3>
+        <p>No large lump sums required — begin your gold savings with as little as 0.1 gram and grow at your own pace.</p>
+      </div>
     </div>
 
     <div class="usecases">
@@ -164,7 +171,8 @@
         <button class="slider-arrow slider-arrow--prev" aria-label="Previous">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
         </button>
-        <div class="slider-track" id="sliderTrack">
+        <div class="marquee-viewport">
+        <div class="slider-track marquee-track" id="sliderTrack">
           <div class="usecase-card usecase-card--plum">
             <div class="usecase-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/><path d="M12 3v2"/></svg>
@@ -216,6 +224,7 @@
             </div>
           </div>
         </div>
+        </div>
         <button class="slider-arrow slider-arrow--next" aria-label="Next">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
         </button>
@@ -233,33 +242,86 @@
     <div>
       <p class="eyebrow">Getting Started</p>
       <h2>3 Steps to Start Saving Gold</h2>
-      <ol class="steps-list">
+      <ol class="steps-list" id="stepsList">
         <li>
-          <span class="step-num">1</span>
-          <span class="step-copy"><strong>Create your goal</strong><span>Set your target, timeline, and name it.</span></span>
+          <button class="step-trigger is-active" type="button" data-step="1">
+            <span class="step-num">1</span>
+            <span class="step-copy"><strong>Create your goal</strong><span>Set your target, timeline, and name it.</span></span>
+          </button>
         </li>
         <li>
-          <span class="step-num">2</span>
-          <span class="step-copy"><strong>Link your card</strong><span>Choose debit or credit, pick your charge day.</span></span>
+          <button class="step-trigger" type="button" data-step="2">
+            <span class="step-num">2</span>
+            <span class="step-copy"><strong>Link your card</strong><span>Choose debit or credit, pick your charge day.</span></span>
+          </button>
         </li>
         <li>
-          <span class="step-num">3</span>
-          <span class="step-copy"><strong>Sit back and watch it grow</strong><span>GoldNow auto-buys every month.</span></span>
+          <button class="step-trigger" type="button" data-step="3">
+            <span class="step-num">3</span>
+            <span class="step-copy"><strong>Sit back and watch it grow</strong><span>GoldNow auto-buys every month.</span></span>
+          </button>
         </li>
       </ol>
     </div>
 
-    <div class="invest-card">
-      <div class="invest-card__inner">
-        <p class="eyebrow">Invest With Confidence</p>
-        <h3>How to Invest in Digital Gold Online</h3>
-        <p>Every gram is 100% backed by certified 999.9 purity allocated gold, held in audited, insured vaults.</p>
-        <div class="invest-steps">
-          <div>Browse Metals</div>
-          <div>Enter Your Amount</div>
-          <div>Secure Checkout</div>
-          <div class="is-active">Grow Your Balance<small>Track your holdings, top up anytime, and watch your balance grow.</small></div>
+    <div class="phone-frame">
+      <div class="phone-frame__notch"></div>
+
+      <div class="phone-screen" data-screen="1">
+        <span class="phone-screen-title">Create Your Goal</span>
+        <div class="phone-field phone-field--selected">
+          <label>Goal Name</label>
+          <strong>Umrah Fund</strong>
         </div>
+        <div class="phone-field">
+          <label>Target</label>
+          <strong>85g &middot; RM 24,500</strong>
+        </div>
+        <div class="phone-field">
+          <label>Timeline</label>
+          <strong>18 months</strong>
+        </div>
+        <button class="btn btn-primary" type="button">Continue</button>
+      </div>
+
+      <div class="phone-screen" data-screen="2" hidden>
+        <span class="phone-screen-title">Link Your Card</span>
+        <div class="phone-field phone-field--selected phone-field-row">
+          <div>
+            <label>Payment Method</label>
+            <strong>Debit Card &middot; •••• 4821</strong>
+          </div>
+          <span class="phone-radio"></span>
+        </div>
+        <div class="phone-field phone-field-row">
+          <div>
+            <label>Payment Method</label>
+            <strong>Credit Card &middot; •••• 1190</strong>
+          </div>
+          <span class="phone-radio"></span>
+        </div>
+        <div class="phone-field">
+          <label>Charge Day</label>
+          <strong>1st of every month</strong>
+        </div>
+        <button class="btn btn-primary" type="button">Link Card</button>
+      </div>
+
+      <div class="phone-screen" data-screen="3" hidden>
+        <span class="phone-screen-title">Watch It Grow</span>
+        <div>
+          <span class="phone-growth-figure tabular">85.2g</span>
+          <div class="phone-growth-delta">+2.4g this month</div>
+        </div>
+        <div class="phone-field">
+          <label>Umrah Fund</label>
+          <div class="pot-bar" style="margin-top:6px;"><span style="width:71%"></span></div>
+        </div>
+        <div class="phone-field">
+          <label>Next Auto-Buy</label>
+          <strong>1 Sep 2026</strong>
+        </div>
+        <button class="btn btn-primary" type="button">View All Pots</button>
       </div>
     </div>
   </div>
@@ -272,14 +334,21 @@
       <p class="eyebrow">Testimonial</p>
       <h2>See What Our Customers Say</h2>
     </div>
-    <div class="testimonial-grid">
+    <div class="slider" id="testimonialSlider">
+      <button class="slider-arrow slider-arrow--prev" aria-label="Previous testimonial">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="slider-track" id="testimonialTrack">
       <div class="testimonial-card">
         <span class="testimonial-quote-mark">&ldquo;</span>
         <span class="testimonial-stat">12 months auto-saved</span>
         <p class="quote">I linked my debit card once and never thought about it again. Every month GoldNow just buys my gold — my Umrah fund built itself.</p>
         <div class="testimonial-person">
-          <strong>Nurul A.</strong>
-          <span>Kuala Lumpur</span>
+          <span class="testimonial-flag" aria-hidden="true">🇲🇾</span>
+          <div class="testimonial-person-meta">
+            <strong>Nurul A.</strong>
+            <span>Kuala Lumpur</span>
+          </div>
         </div>
       </div>
       <div class="testimonial-card">
@@ -287,8 +356,11 @@
         <span class="testimonial-stat">3 active pots</span>
         <p class="quote">Having separate pots for my wedding and my parents' medical fund keeps me honest. I can see exactly how close each goal is.</p>
         <div class="testimonial-person">
-          <strong>Aiman R.</strong>
-          <span>Petaling Jaya</span>
+          <span class="testimonial-flag" aria-hidden="true">🇲🇾</span>
+          <div class="testimonial-person-meta">
+            <strong>Aiman R.</strong>
+            <span>Petaling Jaya</span>
+          </div>
         </div>
       </div>
       <div class="testimonial-card">
@@ -296,8 +368,11 @@
         <span class="testimonial-stat">Redeemed in under 2 minutes</span>
         <p class="quote">When I needed cash back out, withdrawal was instant. No branch visit, no waiting days like with physical gold.</p>
         <div class="testimonial-person">
-          <strong>Farah I.</strong>
-          <span>Johor Bahru</span>
+          <span class="testimonial-flag" aria-hidden="true">🇲🇾</span>
+          <div class="testimonial-person-meta">
+            <strong>Farah I.</strong>
+            <span>Johor Bahru</span>
+          </div>
         </div>
       </div>
       <div class="testimonial-card">
@@ -305,8 +380,11 @@
         <span class="testimonial-stat">999.9 purity, always verified</span>
         <p class="quote">Knowing it's backed by Tomei and every gram is fully allocated 999.9 gold gives me real peace of mind, not just a number on a screen.</p>
         <div class="testimonial-person">
-          <strong>Wei Ling T.</strong>
-          <span>Penang</span>
+          <span class="testimonial-flag" aria-hidden="true">🇲🇾</span>
+          <div class="testimonial-person-meta">
+            <strong>Wei Ling T.</strong>
+            <span>Penang</span>
+          </div>
         </div>
       </div>
       <div class="testimonial-card">
@@ -314,10 +392,17 @@
         <span class="testimonial-stat">24/7 in-app support</span>
         <p class="quote">The app is simple enough for my parents to use, and support answered my questions on a Sunday night. That sold me.</p>
         <div class="testimonial-person">
-          <strong>Hafiz M.</strong>
-          <span>Shah Alam</span>
+          <span class="testimonial-flag" aria-hidden="true">🇲🇾</span>
+          <div class="testimonial-person-meta">
+            <strong>Hafiz M.</strong>
+            <span>Shah Alam</span>
+          </div>
         </div>
       </div>
+      </div>
+      <button class="slider-arrow slider-arrow--next" aria-label="Next testimonial">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
     </div>
   </div>
 </section>
