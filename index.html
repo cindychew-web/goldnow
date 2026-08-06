@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GoldNow | Save Gold with Multiple Savings Pot</title>
+<title>GoldNow | Save Gold with Multiple Savings Pots</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">GoldNow &middot; Savings</p>
-      <h1>Save Gold with Multiple Savings Pot</h1>
+      <h1>Save Gold with Multiple Savings Pots</h1>
       <p class="hero-sub">
         Split your gold savings into dedicated pots for every goal — set it, forget it,
         and watch your gold grow automatically.
@@ -62,26 +62,23 @@
           <h3>How much gold do I need?</h3>
         </div>
 
-        <div class="calc-tabs" role="tablist">
-          <button class="calc-tab is-active" type="button" role="tab" aria-selected="true" data-goal="umrah" data-cost="12000" data-label="Umrah Package (14D)">Umrah</button>
-          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="education" data-cost="450000" data-label="3-Year UK Degree">Study in UK</button>
-          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="medical" data-cost="20000" data-label="Private Hospital Stay">Medical</button>
-          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="wedding" data-cost="60000" data-label="Malaysian Wedding">Wedding</button>
-          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="vacation" data-cost="9000" data-label="Japan Vacation (7D, 2 pax)">Japan Vacation</button>
-          <button class="calc-tab" type="button" role="tab" aria-selected="false" data-goal="custom" data-cost="5000" data-label="Custom Goal">Custom</button>
-        </div>
-
         <div class="calc-body">
-          <div class="calc-row">
-            <span id="calcCostLabel">Estimated cost</span>
-            <strong id="calcCost" class="tabular">RM 12,000 &middot; Umrah Package (14D)</strong>
+          <div class="calc-hero-input">
+            <label for="calcCustomCost">Enter your target amount</label>
+            <div class="calc-hero-input__field">
+              <span>RM</span>
+              <input type="number" id="calcCustomCost" min="100" step="100" value="12000" inputmode="numeric">
+            </div>
           </div>
 
-          <div class="calc-custom-row" id="calcCustomRow">
-            <label for="calcCustomCost">Type your amount</label>
-            <div class="calc-custom-input">
-              <span>RM</span>
-              <input type="number" id="calcCustomCost" min="100" step="100" value="5000" inputmode="numeric">
+          <div class="calc-presets">
+            <span class="calc-presets__label">Or quick-fill a common goal</span>
+            <div class="calc-preset-chips">
+              <button class="calc-chip" type="button" data-cost="12000">Umrah &middot; RM12,000</button>
+              <button class="calc-chip" type="button" data-cost="450000">Study in UK &middot; RM450,000</button>
+              <button class="calc-chip" type="button" data-cost="20000">Medical &middot; RM20,000</button>
+              <button class="calc-chip" type="button" data-cost="60000">Wedding &middot; RM60,000</button>
+              <button class="calc-chip" type="button" data-cost="9000">Japan Vacation &middot; RM9,000</button>
             </div>
           </div>
 
@@ -122,7 +119,7 @@
       <span class="stats-count" data-target="2000" data-suffix="+">2,000+</span>
       <p class="stats-lead">people have fulfilled their dreams through a GoldNow savings pot.</p>
       <p class="stats-desc">
-        Backed by <span class="plum-tag">Tomei Group</span>, Malaysia's trusted name in gold since 1975.
+        Backed by <span class="plum-tag">Tomei Group</span>, Malaysia's trusted name in gold since 1968.
         Every gram saved is <strong>certified 999.9 purity</strong> and held as
         <strong>fully allocated gold</strong> in audited, insured vaults — never pooled, never leveraged.
       </p>
@@ -392,7 +389,7 @@
       <div>
         <p class="eyebrow">Start Today &middot; It's Free</p>
         <h2>Start Building Your Gold Balance Today</h2>
-        <p>Buy, save, and redeem real 999.9 purity gold — all from one app. Free to download, verify once, start in minutes.</p>
+        <p>Buy, save, gift, and redeem real 999.9 purity gold — all from one app. Free to download, verify once, start in minutes.</p>
         <div class="store-badges">
           <a href="#" class="store-badge">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.23-3.91-1.22-1.78-3.11-2.02-3.78-2.05-1.6-.16-3.13.94-3.94.94-.82 0-2.06-.92-3.4-.9-1.75.03-3.36 1.02-4.26 2.58-1.82 3.15-.46 7.8 1.3 10.36.87 1.24 1.9 2.64 3.25 2.59 1.31-.05 1.8-.84 3.38-.84 1.57 0 2.02.84 3.4.81 1.4-.02 2.29-1.26 3.15-2.51.99-1.44 1.4-2.83 1.42-2.9-.03-.01-2.72-1.05-2.75-4.17zM14.6 4.24c.72-.87 1.2-2.08 1.07-3.29-1.04.04-2.3.69-3.04 1.56-.67.77-1.25 2.01-1.09 3.19 1.16.09 2.35-.59 3.06-1.46z"/></svg>
@@ -421,24 +418,20 @@
       </div>
 
       <details class="faq-item">
-        <summary>What is GoldNow?</summary>
-        <p>GoldNow is a savings app by Tomei Group that lets you buy, save, and redeem real 999.9 purity gold in small amounts, split across multiple goal-based pots.</p>
+        <summary>What's the minimum amount I can buy?</summary>
+        <p>You can start saving with as little as 0.1g — no large lump sums needed, so you can begin right away and top up whenever it suits you.</p>
       </details>
       <details class="faq-item">
-        <summary>How is GoldNow different from buying physical gold?</summary>
-        <p>You save in any amount, anytime, with no storage risk. Your gold is fully allocated and insured in Tomei's vaults, and you can redeem or withdraw instantly from the app instead of visiting a store.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is my gold real and insured?</summary>
-        <p>Yes. Every gram is certified 999.9 purity, fully allocated to you (never pooled or leveraged), and held in audited, insured vaults.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I withdraw or redeem my gold anytime?</summary>
-        <p>Yes, you can withdraw or redeem from any pot anytime directly in the app — most redemptions complete in under two minutes.</p>
+        <summary>What's the maximum duration I can set for my goal?</summary>
+        <p>You can set a savings timeline of up to 120 months (10 years) for any pot, whatever fits your goal.</p>
       </details>
       <details class="faq-item">
         <summary>How fast can I start saving?</summary>
         <p>Download the app, verify your identity once, link a debit or credit card, and you can create your first savings pot in minutes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I redeem gold or cash out?</summary>
+        <p>You can redeem physical gold at any Tomei outlet nationwide, starting from as low as 1g. Or cash out straight to your bank account from within the app, starting from as low as 0.1g.</p>
       </details>
     </div>
   </div>

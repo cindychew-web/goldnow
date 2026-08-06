@@ -74,48 +74,40 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ---- hero goal calculator ----
-  const calcTabs = document.querySelectorAll(".calc-tab");
-  const calcCost = document.getElementById("calcCost");
-  const calcCostLabel = document.getElementById("calcCostLabel");
-  const calcCustomRow = document.getElementById("calcCustomRow");
+  const calcChips = document.querySelectorAll(".calc-chip");
   const calcCustomCost = document.getElementById("calcCustomCost");
   const calcMonths = document.getElementById("calcMonths");
   const calcMonthsLabel = document.getElementById("calcMonthsLabel");
   const calcGrams = document.getElementById("calcGrams");
   const calcMonthly = document.getElementById("calcMonthly");
-  if (calcTabs.length && calcCost && calcMonths && calcGrams && calcMonthly) {
+  if (calcCustomCost && calcMonths && calcGrams && calcMonthly) {
     const GOLD_PRICE_PER_GRAM = 500; // indicative RM/g, shown live in the app
     const formatMYR = (n) => "RM " + Math.round(n).toLocaleString();
-    let activeTab = document.querySelector(".calc-tab.is-active");
 
     const update = () => {
-      const isCustom = activeTab.dataset.goal === "custom";
-      calcCustomRow.classList.toggle("is-visible", isCustom);
-      const cost = isCustom
-        ? Math.max(parseFloat(calcCustomCost.value) || 0, 0)
-        : parseFloat(activeTab.dataset.cost);
+      const cost = Math.max(parseFloat(calcCustomCost.value) || 0, 0);
       const months = parseInt(calcMonths.value, 10);
       const totalGrams = cost / GOLD_PRICE_PER_GRAM;
       const monthlyGrams = totalGrams / months;
       const monthlyMYR = cost / months;
-      calcCostLabel.textContent = isCustom ? "Your target amount" : "Estimated cost";
-      calcCost.textContent = isCustom ? formatMYR(cost) : `${formatMYR(cost)} · ${activeTab.dataset.label}`;
       calcMonthsLabel.textContent = `${months} month${months === 1 ? "" : "s"}`;
       calcGrams.textContent = `~${totalGrams.toFixed(1)}g`;
       calcMonthly.textContent = `~${monthlyGrams.toFixed(2)}g / ${formatMYR(monthlyMYR)} per month`;
     };
 
-    calcTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        calcTabs.forEach((t) => { t.classList.remove("is-active"); t.setAttribute("aria-selected", "false"); });
-        tab.classList.add("is-active");
-        tab.setAttribute("aria-selected", "true");
-        activeTab = tab;
+    calcChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        calcCustomCost.value = chip.dataset.cost;
+        calcChips.forEach((c) => c.classList.remove("is-active"));
+        chip.classList.add("is-active");
         update();
       });
     });
+    calcCustomCost.addEventListener("input", () => {
+      calcChips.forEach((c) => c.classList.remove("is-active"));
+      update();
+    });
     calcMonths.addEventListener("input", update);
-    if (calcCustomCost) calcCustomCost.addEventListener("input", update);
     update();
   }
 
