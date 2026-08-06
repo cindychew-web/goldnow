@@ -1,19 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ---- testimonial slider (manual, native scroll) ----
-  const testimonialTrack = document.getElementById("testimonialTrack");
-  const testimonialSlider = document.getElementById("testimonialSlider");
-  if (testimonialSlider && testimonialTrack) {
-    const step = 320;
-    testimonialSlider.querySelector(".slider-arrow--prev").addEventListener("click", () => {
-      testimonialTrack.scrollBy({ left: -step, behavior: prefersReducedMotion ? "auto" : "smooth" });
-    });
-    testimonialSlider.querySelector(".slider-arrow--next").addEventListener("click", () => {
-      testimonialTrack.scrollBy({ left: step, behavior: prefersReducedMotion ? "auto" : "smooth" });
-    });
-  }
-
   // ---- use-case marquee (auto-scrolling, pauses on hover, arrows nudge) ----
   const usecaseSlider = document.getElementById("usecaseSlider");
   const marqueeTrack = document.getElementById("sliderTrack");
@@ -89,6 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---- hero goal calculator ----
   const calcTabs = document.querySelectorAll(".calc-tab");
   const calcCost = document.getElementById("calcCost");
+  const calcCostLabel = document.getElementById("calcCostLabel");
+  const calcCustomRow = document.getElementById("calcCustomRow");
+  const calcCustomCost = document.getElementById("calcCustomCost");
   const calcMonths = document.getElementById("calcMonths");
   const calcMonthsLabel = document.getElementById("calcMonthsLabel");
   const calcGrams = document.getElementById("calcGrams");
@@ -99,12 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let activeTab = document.querySelector(".calc-tab.is-active");
 
     const update = () => {
-      const cost = parseFloat(activeTab.dataset.cost);
+      const isCustom = activeTab.dataset.goal === "custom";
+      calcCustomRow.classList.toggle("is-visible", isCustom);
+      const cost = isCustom
+        ? Math.max(parseFloat(calcCustomCost.value) || 0, 0)
+        : parseFloat(activeTab.dataset.cost);
       const months = parseInt(calcMonths.value, 10);
       const totalGrams = cost / GOLD_PRICE_PER_GRAM;
       const monthlyGrams = totalGrams / months;
       const monthlyMYR = cost / months;
-      calcCost.textContent = `${formatMYR(cost)} · ${activeTab.dataset.label}`;
+      calcCostLabel.textContent = isCustom ? "Your target amount" : "Estimated cost";
+      calcCost.textContent = isCustom ? formatMYR(cost) : `${formatMYR(cost)} · ${activeTab.dataset.label}`;
       calcMonthsLabel.textContent = `${months} month${months === 1 ? "" : "s"}`;
       calcGrams.textContent = `~${totalGrams.toFixed(1)}g`;
       calcMonthly.textContent = `~${monthlyGrams.toFixed(2)}g / ${formatMYR(monthlyMYR)} per month`;
@@ -120,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
     calcMonths.addEventListener("input", update);
+    if (calcCustomCost) calcCustomCost.addEventListener("input", update);
     update();
   }
 
