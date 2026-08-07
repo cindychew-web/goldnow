@@ -38,10 +38,6 @@
     <div class="hero-copy">
       <p class="eyebrow">GoldNow &middot; Savings</p>
       <h1>Save Gold with Multiple Savings Pots</h1>
-      <div class="hero-banner">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
-        <p>Why gold? It's a timeless way to save — trusted for generations to hold its value against rising costs, now made simple enough to save toward life's goals.</p>
-      </div>
       <p class="hero-sub">
         Split your gold savings into dedicated pots for every goal — set it, forget it,
         and watch your gold grow automatically.
@@ -105,36 +101,29 @@
 
           <div class="calc-projection">
             <span class="calc-projection__label" id="calcProjectionLabel">Potential value in 12 months*</span>
-            <strong id="calcProjection" class="tabular">RM 0</strong>
-            <p class="calc-projection__note">*Based on gold's historical average return of ~8.1%/yr applied to your monthly amount — an estimate only, not guaranteed. Past performance doesn't indicate future returns.</p>
+
+            <div class="calc-projection__hero">
+              <strong id="calcProjection" class="tabular">RM 0</strong>
+              <span class="calc-projection__hero-tag">Gold Savings (GoldNow) &middot; avg 8.1%/yr</span>
+            </div>
+
+            <div class="calc-projection__compare">
+              <div>
+                <span>Fixed Deposit &middot; avg 3.2%/yr</span>
+                <strong id="calcProjectionFd" class="tabular">RM 0</strong>
+              </div>
+              <div>
+                <span>Savings Account &middot; avg 1.5%/yr</span>
+                <strong id="calcProjectionSavings" class="tabular">RM 0</strong>
+              </div>
+            </div>
+
+            <p class="calc-projection__note">*Sample figures based on historical average annual returns, 2015–2025 — replace with verified data before launch. Applied to your monthly amount; estimate only, not guaranteed. Past performance doesn't indicate future returns.</p>
           </div>
 
           <p class="calc-note">Indicative estimate based on a gold price of RM 500/g and typical Malaysian costs. Up to 120 months. Live pricing shown in the app.</p>
           <a href="#download" class="btn btn-primary">Start This Pot</a>
         </div>
-      </div>
-
-      <div class="history-card">
-        <p class="eyebrow">Optional &middot; Historical Data</p>
-        <h3>See how gold has moved historically</h3>
-        <p class="history-card__sub">A look back at how different savings options have trended over the past 10 years.</p>
-
-        <div class="history-bars">
-          <div class="history-bar">
-            <div class="history-bar__head"><span>Gold</span><strong class="tabular">avg 8.1%/yr</strong></div>
-            <div class="history-track"><span class="history-fill history-fill--gold" style="width:100%"></span></div>
-          </div>
-          <div class="history-bar">
-            <div class="history-bar__head"><span>Fixed Deposit</span><strong class="tabular">avg 3.2%/yr</strong></div>
-            <div class="history-track"><span class="history-fill history-fill--neutral" style="width:40%"></span></div>
-          </div>
-          <div class="history-bar">
-            <div class="history-bar__head"><span>Savings Account</span><strong class="tabular">avg 1.5%/yr</strong></div>
-            <div class="history-track"><span class="history-fill history-fill--neutral" style="width:19%"></span></div>
-          </div>
-        </div>
-
-        <p class="history-disclaimer">Sample figures — replace with verified data before launch. Historical average, 2015–2025. Past performance does not indicate future results.</p>
       </div>
     </div>
   </div>

@@ -203,14 +203,6 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .hero-copy .eyebrow { color: var(--gold); }
 .hero-copy .eyebrow::before { background: var(--plum-light); }
 .hero-copy h1 { font-size: clamp(2.1rem, 3.6vw, var(--step-4)); color: var(--on-ink); margin-bottom: 20px; }
-.hero-banner {
-  display: flex; align-items: flex-start; gap: 10px;
-  background: rgba(255, 207, 123, 0.08); border: 1px solid rgba(255, 207, 123, 0.25);
-  border-radius: 10px; padding: 12px 16px; margin-bottom: 20px; max-width: 460px;
-}
-.hero-banner svg { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
-.hero-banner p { font-size: 13.5px; color: var(--on-ink-muted); line-height: 1.5; font-family: var(--font-body); }
-
 .hero-sub { color: var(--on-ink-muted); font-size: var(--step-0); margin-bottom: 32px; max-width: 460px; font-family: var(--font-body); }
 .hero-copy .btn-primary { margin-bottom: 26px; }
 
@@ -285,39 +277,36 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 
 .calc-projection {
   background: linear-gradient(135deg, rgba(142, 35, 108, 0.08), rgba(255, 207, 123, 0.16));
-  border: 1px solid rgba(142, 35, 108, 0.25); border-radius: 12px; padding: 16px 18px;
+  border: 1px solid rgba(142, 35, 108, 0.25); border-radius: 12px; padding: 18px;
 }
 .calc-projection__label {
   display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--text-muted); font-family: var(--font-body); font-weight: 700; margin-bottom: 6px;
+  color: var(--text-muted); font-family: var(--font-body); font-weight: 700; margin-bottom: 10px;
 }
-.calc-projection strong {
-  display: block; font-family: var(--font-heading); font-size: 1.5rem; color: var(--plum); margin-bottom: 8px;
+.calc-projection__hero { margin-bottom: 14px; }
+.calc-projection__hero strong {
+  display: block; font-family: var(--font-heading); font-size: 2rem; color: var(--plum); line-height: 1.1;
+}
+.calc-projection__hero-tag {
+  display: block; font-size: 11.5px; color: var(--text-muted); font-family: var(--font-body);
+  font-weight: 700; margin-top: 4px;
+}
+.calc-projection__compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  padding-top: 14px; margin-bottom: 14px; border-top: 1px dashed rgba(142, 35, 108, 0.3);
+}
+.calc-projection__compare div { display: flex; flex-direction: column; gap: 4px; }
+.calc-projection__compare span {
+  font-size: 10.5px; color: var(--text-muted); font-family: var(--font-body);
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.calc-projection__compare strong {
+  font-family: var(--font-heading); font-size: 1.05rem; color: var(--text); font-weight: 400;
 }
 .calc-projection__note { font-size: 11px; color: var(--text-muted); line-height: 1.5; font-family: var(--font-body); }
 
 .calc-note { font-size: 11.5px; color: var(--text-muted); font-family: var(--font-body); line-height: 1.5; }
 .calc-body .btn { width: 100%; justify-content: center; }
-
-/* ---------- Historical returns card (static, optional reference) ---------- */
-.history-card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
-  box-shadow: var(--shadow-lift); padding: 26px; margin-top: 20px;
-}
-.history-card .eyebrow { margin-bottom: 10px; }
-.history-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-.history-card__sub { font-size: 13px; color: var(--text-muted); font-family: var(--font-body); margin-bottom: 22px; line-height: 1.5; }
-
-.history-bars { display: flex; flex-direction: column; gap: 18px; margin-bottom: 20px; }
-.history-bar__head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
-.history-bar__head span { font-size: 14px; font-weight: 700; color: var(--text); font-family: var(--font-body); }
-.history-bar__head strong { font-size: 13.5px; color: var(--text-muted); }
-.history-track { background: var(--surface-alt); border-radius: 6px; height: 10px; overflow: hidden; }
-.history-fill { display: block; height: 100%; border-radius: 6px; }
-.history-fill--gold { background: var(--plum); }
-.history-fill--neutral { background: var(--line); }
-
-.history-disclaimer { font-size: 11px; color: var(--text-muted); line-height: 1.55; font-family: var(--font-body); padding-top: 16px; border-top: 1px solid var(--line); }
 
 /* ---------- Solution & Use Cases ---------- */
 .solution { padding: 96px 0; background: var(--surface); }

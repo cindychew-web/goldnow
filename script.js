@@ -82,9 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const calcMonthly = document.getElementById("calcMonthly");
   const calcProjection = document.getElementById("calcProjection");
   const calcProjectionLabel = document.getElementById("calcProjectionLabel");
+  const calcProjectionFd = document.getElementById("calcProjectionFd");
+  const calcProjectionSavings = document.getElementById("calcProjectionSavings");
   if (calcCustomCost && calcMonths && calcGrams && calcMonthly) {
     const GOLD_PRICE_PER_GRAM = 500; // indicative RM/g, shown live in the app
-    const GOLD_AVG_RETURN_PA = 0.081; // matches the historical returns card — sample figure, replace before launch
+    // sample figures, historical average annual return 2015-2025 — replace with verified data before launch
+    const GOLD_AVG_RETURN_PA = 0.081;
+    const FD_AVG_RETURN_PA = 0.032;
+    const SAVINGS_AVG_RETURN_PA = 0.015;
     const formatMYR = (n) => "RM " + Math.round(n).toLocaleString();
 
     // future value of a monthly contribution stream, ordinary annuity
@@ -106,10 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
       calcMonthly.textContent = `~${monthlyGrams.toFixed(2)}g / ${formatMYR(monthlyMYR)} per month`;
 
       if (calcProjection && calcProjectionLabel) {
-        const projected = futureValue(monthlyMYR, GOLD_AVG_RETURN_PA, months);
         calcProjectionLabel.textContent = `Potential value in ${months} month${months === 1 ? "" : "s"}*`;
-        calcProjection.textContent = formatMYR(projected);
+        calcProjection.textContent = formatMYR(futureValue(monthlyMYR, GOLD_AVG_RETURN_PA, months));
       }
+      if (calcProjectionFd) calcProjectionFd.textContent = formatMYR(futureValue(monthlyMYR, FD_AVG_RETURN_PA, months));
+      if (calcProjectionSavings) calcProjectionSavings.textContent = formatMYR(futureValue(monthlyMYR, SAVINGS_AVG_RETURN_PA, months));
     };
 
     calcChips.forEach((chip) => {
