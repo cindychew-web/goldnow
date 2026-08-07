@@ -80,29 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const calcMonthsLabel = document.getElementById("calcMonthsLabel");
   const calcGrams = document.getElementById("calcGrams");
   const calcMonthly = document.getElementById("calcMonthly");
-
-  // growth comparison — illustrative only, based on commonly cited long-term
-  // historical averages (not guaranteed future returns, not financial advice)
-  const GROWTH_RATES_PA = { gold: 0.07, etf: 0.075, savings: 0.02 };
-  const growthGold = document.getElementById("growthGold");
-  const growthGoldFill = document.getElementById("growthGoldFill");
-  const growthEtf = document.getElementById("growthEtf");
-  const growthEtfFill = document.getElementById("growthEtfFill");
-  const growthSavings = document.getElementById("growthSavings");
-  const growthSavingsFill = document.getElementById("growthSavingsFill");
-  const growthPrincipal = document.getElementById("growthPrincipal");
-
   if (calcCustomCost && calcMonths && calcGrams && calcMonthly) {
     const GOLD_PRICE_PER_GRAM = 500; // indicative RM/g, shown live in the app
     const formatMYR = (n) => "RM " + Math.round(n).toLocaleString();
-
-    // future value of a monthly contribution stream, ordinary annuity
-    const futureValue = (monthlyContribution, annualRate, months) => {
-      const i = annualRate / 12;
-      if (months <= 0) return 0;
-      if (i === 0) return monthlyContribution * months;
-      return monthlyContribution * ((Math.pow(1 + i, months) - 1) / i);
-    };
 
     const update = () => {
       const cost = Math.max(parseFloat(calcCustomCost.value) || 0, 0);
@@ -113,22 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
       calcMonthsLabel.textContent = `${months} month${months === 1 ? "" : "s"}`;
       calcGrams.textContent = `~${totalGrams.toFixed(1)}g`;
       calcMonthly.textContent = `~${monthlyGrams.toFixed(2)}g / ${formatMYR(monthlyMYR)} per month`;
-
-      if (growthGold && growthEtf && growthSavings && growthPrincipal) {
-        const fvGold = futureValue(monthlyMYR, GROWTH_RATES_PA.gold, months);
-        const fvEtf = futureValue(monthlyMYR, GROWTH_RATES_PA.etf, months);
-        const fvSavings = futureValue(monthlyMYR, GROWTH_RATES_PA.savings, months);
-        const maxFv = Math.max(fvGold, fvEtf, fvSavings, 1);
-
-        growthGold.textContent = formatMYR(fvGold);
-        growthEtf.textContent = formatMYR(fvEtf);
-        growthSavings.textContent = formatMYR(fvSavings);
-        growthPrincipal.textContent = formatMYR(cost);
-
-        growthGoldFill.style.width = `${(fvGold / maxFv) * 100}%`;
-        growthEtfFill.style.width = `${(fvEtf / maxFv) * 100}%`;
-        growthSavingsFill.style.width = `${(fvSavings / maxFv) * 100}%`;
-      }
     };
 
     calcChips.forEach((chip) => {
