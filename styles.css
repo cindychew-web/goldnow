@@ -261,6 +261,32 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .calc-note { font-size: 11.5px; color: var(--text-muted); font-family: var(--font-body); line-height: 1.5; }
 .calc-body .btn { width: 100%; justify-content: center; }
 
+.calc-growth { border-top: 1px solid var(--line); padding-top: 16px; }
+.calc-growth summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-size: 12.5px; font-weight: 700; color: var(--plum); font-family: var(--font-body);
+}
+.calc-growth summary::-webkit-details-marker { display: none; }
+.calc-growth summary::after {
+  content: "\2192"; font-size: 13px; transition: transform .2s ease; flex-shrink: 0;
+}
+.calc-growth[open] summary::after { transform: rotate(90deg); }
+
+.calc-growth-bars { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.calc-growth-bar__head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.calc-growth-bar__head span { font-size: 12.5px; font-weight: 700; color: var(--text-muted); font-family: var(--font-body); }
+.calc-growth-bar__head strong { font-size: 14px; color: var(--text); font-family: var(--font-heading); }
+.calc-growth-track { background: var(--surface-alt); border-radius: 6px; height: 10px; overflow: hidden; }
+.calc-growth-fill { display: block; height: 100%; border-radius: 6px; width: 0%; transition: width .5s ease; }
+.calc-growth-fill--gold { background: linear-gradient(90deg, var(--plum), var(--gold)); }
+.calc-growth-fill--etf { background: #9aa0ab; }
+.calc-growth-fill--savings { background: var(--line); }
+.calc-growth-bar small { display: block; margin-top: 6px; color: var(--text-muted); font-size: 11px; font-family: var(--font-body); }
+
+.calc-growth-note { font-size: 11px; color: var(--text-muted); line-height: 1.55; margin-top: 16px; font-family: var(--font-body); }
+.calc-growth-note strong { color: var(--text); }
+
 /* ---------- Solution & Use Cases ---------- */
 .solution { padding: 96px 0; background: var(--surface); }
 .section-head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
