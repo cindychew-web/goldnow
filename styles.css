@@ -283,6 +283,19 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .calc-result span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-family: var(--font-body); }
 .calc-result strong { font-family: var(--font-heading); font-size: 1.15rem; color: var(--text); }
 
+.calc-projection {
+  background: linear-gradient(135deg, rgba(142, 35, 108, 0.08), rgba(255, 207, 123, 0.16));
+  border: 1px solid rgba(142, 35, 108, 0.25); border-radius: 12px; padding: 16px 18px;
+}
+.calc-projection__label {
+  display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--text-muted); font-family: var(--font-body); font-weight: 700; margin-bottom: 6px;
+}
+.calc-projection strong {
+  display: block; font-family: var(--font-heading); font-size: 1.5rem; color: var(--plum); margin-bottom: 8px;
+}
+.calc-projection__note { font-size: 11px; color: var(--text-muted); line-height: 1.5; font-family: var(--font-body); }
+
 .calc-note { font-size: 11.5px; color: var(--text-muted); font-family: var(--font-body); line-height: 1.5; }
 .calc-body .btn { width: 100%; justify-content: center; }
 
