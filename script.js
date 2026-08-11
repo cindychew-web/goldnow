@@ -80,32 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const calcMonthsLabel = document.getElementById("calcMonthsLabel");
   const calcGrams = document.getElementById("calcGrams");
   const calcMonthly = document.getElementById("calcMonthly");
-  const calcProjection = document.getElementById("calcProjection");
-  const calcProjectionLabel = document.getElementById("calcProjectionLabel");
-  const calcProjectionFd = document.getElementById("calcProjectionFd");
-  const calcProjectionSavings = document.getElementById("calcProjectionSavings");
   if (calcCustomCost && calcMonths && calcGrams && calcMonthly) {
     const GOLD_PRICE_PER_GRAM = 500; // indicative RM/g, shown live in the app
-    // sample figures, historical average annual return 2015-2025 — replace with verified data before launch
-    const GOLD_AVG_RETURN_PA = 0.14;
-    const FD_AVG_RETURN_PA = 0.032;
-    const SAVINGS_AVG_RETURN_PA = 0.015;
     const formatMYR = (n) => "RM " + Math.round(n).toLocaleString();
-
-    // qualitative duration tier shown in place of an exact month count
-    const durationTier = (months) => {
-      if (months <= 24) return "Shorter";
-      if (months <= 72) return "Long";
-      return "Longer";
-    };
-
-    // future value of a monthly contribution stream, ordinary annuity
-    const futureValue = (monthlyContribution, annualRate, months) => {
-      const i = annualRate / 12;
-      if (months <= 0) return 0;
-      if (i === 0) return monthlyContribution * months;
-      return monthlyContribution * ((Math.pow(1 + i, months) - 1) / i);
-    };
 
     const update = () => {
       const cost = Math.max(parseFloat(calcCustomCost.value) || 0, 0);
@@ -113,17 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const totalGrams = cost / GOLD_PRICE_PER_GRAM;
       const monthlyGrams = totalGrams / months;
       const monthlyMYR = cost / months;
-      const tier = durationTier(months);
-      calcMonthsLabel.textContent = tier;
+      calcMonthsLabel.textContent = `${months} month${months === 1 ? "" : "s"}`;
       calcGrams.textContent = `~${totalGrams.toFixed(1)}g`;
       calcMonthly.textContent = `~${monthlyGrams.toFixed(2)}g / ${formatMYR(monthlyMYR)} per month`;
-
-      if (calcProjection && calcProjectionLabel) {
-        calcProjectionLabel.textContent = `Potential value — ${tier} term*`;
-        calcProjection.textContent = formatMYR(futureValue(monthlyMYR, GOLD_AVG_RETURN_PA, months));
-      }
-      if (calcProjectionFd) calcProjectionFd.textContent = formatMYR(futureValue(monthlyMYR, FD_AVG_RETURN_PA, months));
-      if (calcProjectionSavings) calcProjectionSavings.textContent = formatMYR(futureValue(monthlyMYR, SAVINGS_AVG_RETURN_PA, months));
     };
 
     calcChips.forEach((chip) => {
