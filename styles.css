@@ -192,14 +192,27 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
+  overflow: hidden;
   background:
-    radial-gradient(900px 420px at 85% -10%, rgba(142, 35, 108, 0.55), transparent 60%),
+    radial-gradient(900px 420px at 85% -10%, rgba(142, 35, 108, 0.6), transparent 60%),
+    radial-gradient(640px 520px at 6% 60%, rgba(142, 35, 108, 0.4), transparent 65%),
     radial-gradient(700px 380px at 10% 110%, rgba(255, 207, 123, 0.16), transparent 55%),
     var(--black);
   color: var(--on-ink);
   padding: 96px 0 84px;
 }
-.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; padding-top: 12px; }
+.hero::before,
+.hero::after {
+  content: ""; position: absolute; z-index: 0;
+  border: 1px solid rgba(178, 71, 142, 0.4); border-radius: 50%; pointer-events: none;
+}
+.hero::before { width: 360px; height: 360px; top: 4%; left: -110px; }
+.hero::after { width: 150px; height: 150px; bottom: 8%; left: 12%; border-color: rgba(178, 71, 142, 0.3); }
+.hero-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; padding-top: 12px;
+}
 .hero-copy .eyebrow { color: var(--gold); }
 .hero-copy .eyebrow::before { background: var(--plum-light); }
 .hero-copy h1 { font-size: clamp(2.1rem, 3.6vw, var(--step-4)); color: var(--on-ink); margin-bottom: 20px; }
