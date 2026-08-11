@@ -34,10 +34,17 @@
 
 <div class="price-ticker">
   <div class="container price-ticker__inner">
-    <span class="price-ticker__dot" aria-hidden="true"></span>
-    <span class="price-ticker__label">Gold Price Today</span>
+    <span class="price-ticker__icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+    </span>
+    <span class="price-ticker__live">
+      <span class="price-ticker__dot" aria-hidden="true"></span>
+      <span class="price-ticker__label">Live Gold Price</span>
+    </span>
     <strong class="price-ticker__price tabular">RM 500.00<small>/g</small></strong>
-    <span class="price-ticker__purity">999.9 purity</span>
+    <svg class="price-ticker__spark" width="56" height="20" viewBox="0 0 56 20" fill="none" aria-hidden="true">
+      <polyline points="0,16 8,13 16,15 24,9 32,11 40,5 48,7 56,2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
     <a href="#download" class="price-ticker__cta">Get real-time price alerts in the app &rarr;</a>
   </div>
 </div>
@@ -70,7 +77,10 @@
         <div class="calc-card__head">
           <div class="calc-card__head-row">
             <span class="calc-card__label">Goal Calculator</span>
-            <span class="calc-card__price-badge">RM 500.00<small>/g</small></span>
+            <span class="calc-card__price-badge">
+              <span class="calc-card__price-live"><span class="calc-card__price-dot" aria-hidden="true"></span>Live</span>
+              RM 500.00<small>/g</small>
+            </span>
           </div>
           <h3>How much gold do I need?</h3>
         </div>

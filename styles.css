@@ -186,11 +186,27 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 
 /* ---------- Live price ticker ---------- */
 .price-ticker {
-  background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+  background: linear-gradient(100deg, var(--gold-deep) 0%, var(--gold) 22%, #fff3d6 48%, var(--gold) 74%, var(--gold-deep) 100%);
+  background-size: 220% 100%;
   border-bottom: 2px solid var(--plum);
+  animation: price-ticker-sheen 14s ease-in-out infinite;
 }
+@keyframes price-ticker-sheen {
+  0%, 100% { background-position: 0% 0; }
+  50% { background-position: 100% 0; }
+}
+@media (prefers-reduced-motion: reduce) { .price-ticker { animation: none; } }
 .price-ticker__inner {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 11px 0;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 11px 0;
+}
+.price-ticker__icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(0, 0, 0, 0.12); color: var(--black); flex-shrink: 0;
+}
+.price-ticker__icon svg { display: block; }
+.price-ticker__live {
+  display: flex; align-items: center; gap: 6px;
 }
 .price-ticker__dot {
   width: 9px; height: 9px; border-radius: 50%; background: #0b7a45; flex-shrink: 0;
@@ -206,11 +222,11 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .price-ticker__price {
   font-family: var(--font-heading); font-size: 17px; color: var(--black);
   font-variant-numeric: tabular-nums;
+  border-left: 1px solid rgba(0, 0, 0, 0.25); padding-left: 12px;
 }
 .price-ticker__price small { font-family: var(--font-body); font-weight: 700; color: rgba(0, 0, 0, 0.6); }
-.price-ticker__purity {
-  font-size: 11.5px; font-weight: 700; color: rgba(0, 0, 0, 0.65); font-family: var(--font-body);
-  border-left: 1px solid rgba(0, 0, 0, 0.25); padding-left: 10px;
+.price-ticker__spark {
+  color: #0b7a45; flex-shrink: 0;
 }
 .price-ticker__cta {
   font-size: 11.5px; font-weight: 800; color: var(--plum); text-decoration: none;
@@ -281,12 +297,23 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .calc-card__label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-family: var(--font-body); font-weight: 700; }
 .calc-card__head-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .calc-card__price-badge {
-  display: inline-flex; align-items: baseline; gap: 2px;
+  display: inline-flex; align-items: baseline; gap: 6px; flex-wrap: nowrap; white-space: nowrap;
   background: var(--gold); color: var(--black);
   font-family: var(--font-heading); font-size: 14px; font-variant-numeric: tabular-nums;
-  padding: 4px 10px; border-radius: 999px;
+  padding: 4px 10px; border-radius: 999px; flex-shrink: 0;
 }
 .calc-card__price-badge small { font-family: var(--font-body); font-weight: 700; font-size: 11px; }
+.calc-card__price-live {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--font-body); font-weight: 800; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.05em; color: #0b7a45;
+}
+.calc-card__price-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #0b7a45; flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(11, 122, 69, 0.25);
+  animation: price-ticker-pulse 1.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) { .calc-card__price-dot { animation: none; } }
 .calc-card__head h3 { font-size: 1.15rem; margin: 6px 0 14px; }
 
 .calc-body { padding: 4px 26px 22px; display: flex; flex-direction: column; gap: 14px; }
