@@ -200,7 +200,7 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
     radial-gradient(700px 380px at 10% 110%, rgba(255, 207, 123, 0.16), transparent 55%),
     var(--black);
   color: var(--on-ink);
-  padding: 96px 0 84px;
+  padding: 40px 0 40px;
 }
 .hero::before,
 .hero::after {
@@ -211,7 +211,7 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .hero::after { width: 150px; height: 150px; bottom: 8%; left: 12%; border-color: rgba(178, 71, 142, 0.3); }
 .hero-grid {
   position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; padding-top: 12px;
+  display: grid; grid-template-columns: 0.3fr 0.7fr; gap: 40px; align-items: start; padding-top: 12px;
 }
 .hero-copy .eyebrow { color: var(--gold); }
 .hero-copy .eyebrow::before { background: var(--plum-light); }
@@ -256,7 +256,7 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .calc-card__price-note { font-size: 11px; margin-left: 1px; }
 .calc-card__head h3 { font-size: 1.15rem; margin: 6px 0 14px; }
 
-.calc-body { padding: 4px 26px 22px; display: flex; flex-direction: column; gap: 14px; }
+.calc-body { padding: 4px 26px 20px; display: flex; flex-direction: column; gap: 10px; }
 
 .calc-hero-input { display: flex; flex-direction: column; gap: 6px; }
 .calc-hero-input label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-family: var(--font-body); font-weight: 700; }
@@ -315,10 +315,10 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .calc-outcome__mini { flex: 1; min-width: 0; padding-left: 12px; border-left: 1px dashed rgba(142, 35, 108, 0.3); }
 .calc-outcome__mini strong { display: block; font-family: var(--font-heading); font-size: 0.85rem; color: var(--text); font-weight: 400; line-height: 1.1; }
 .calc-outcome__mini small { display: block; font-size: 9.5px; color: var(--text-muted); font-family: var(--font-body); margin-top: 3px; }
-.calc-outcome__note { font-size: 10.5px; color: var(--text-muted); line-height: 1.4; font-family: var(--font-body); margin-top: 10px; }
+.calc-outcome__note { font-size: 10.5px; color: var(--text-muted); line-height: 1.35; font-family: var(--font-body); margin-top: 6px; }
 
 .calc-note { font-size: 11px; color: var(--text-muted); font-family: var(--font-body); line-height: 1.5; }
-.calc-body .btn { width: 100%; justify-content: center; }
+.calc-body .btn { width: 100%; justify-content: center; padding: 12px 30px; }
 
 /* ---------- Solution & Use Cases ---------- */
 .solution { padding: 96px 0; background: var(--surface); }
