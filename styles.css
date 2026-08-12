@@ -211,7 +211,7 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--text); line-height: 
 .hero::after { width: 150px; height: 150px; bottom: 8%; left: 12%; border-color: rgba(178, 71, 142, 0.3); }
 .hero-grid {
   position: relative; z-index: 1;
-  display: grid; grid-template-columns: 0.3fr 0.7fr; gap: 40px; align-items: start; padding-top: 12px;
+  display: grid; grid-template-columns: 0.4fr 0.6fr; gap: 48px; align-items: start; padding-top: 12px;
 }
 .hero-copy .eyebrow { color: var(--gold); }
 .hero-copy .eyebrow::before { background: var(--plum-light); }
