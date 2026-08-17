@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Earn Gold When You Renew Your Car Insurance | GoldNow x A to Z Risk Management</title>
+<style>
+  :root{
+    --black:#000000;
+    --gold:#ffcf7b;
+    --purple:#8e236c;
+    --white:#ffffff;
+    --gray-text:#4a4a4a;
+    --light-bg:#faf8f5;
+    --border:#e8e0d8;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--black);
+    background:var(--white);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.heading{
+    font-family:"Arial Black", "Arial Bold", Arial, sans-serif;
+    font-weight:900;
+    letter-spacing:-0.02em;
+    line-height:1.15;
+  }
+
+  .wordmark{
+    font-family:"Trebuchet MS", "Trebuchet", sans-serif;
+    font-weight:700;
+    font-style:italic;
+  }
+
+  a{ color:inherit; }
+
+  img{ max-width:100%; display:block; }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 20px;
+    border-bottom:1px solid var(--border);
+    background:var(--white);
+  }
+
+  .topbar .wordmark{
+    font-size:22px;
+    color:var(--black);
+  }
+
+  .topbar .wordmark span{ color:var(--purple); }
+
+  .topbar .partner-tag{
+    font-size:12px;
+    color:var(--gray-text);
+    font-weight:bold;
+  }
+
+  /* ---------- Layout ---------- */
+  .page{
+    display:flex;
+    flex-direction:column;
+    max-width:1280px;
+    margin:0 auto;
+  }
+
+  @media (min-width:900px){
+    .page{
+      flex-direction:row;
+      align-items:flex-start;
+      gap:32px;
+      padding:40px 32px 60px;
+    }
+  }
+
+  /* ---------- Left column ---------- */
+  .value-prop{
+    padding:28px 20px 8px;
+    flex:1 1 58%;
+    min-width:0;
+  }
+
+  @media (min-width:900px){
+    .value-prop{ padding:12px 0 0; }
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--light-bg);
+    border:1px solid var(--border);
+    color:var(--purple);
+    font-weight:bold;
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+
+  .eyebrow .dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  .headline{
+    font-size:34px;
+    margin-bottom:16px;
+    color:var(--black);
+  }
+
+  .headline .accent{ color:var(--purple); }
+
+  @media (min-width:600px){
+    .headline{ font-size:44px; }
+  }
+
+  @media (min-width:1100px){
+    .headline{ font-size:50px; }
+  }
+
+  .subheadline{
+    font-size:17px;
+    color:var(--gray-text);
+    max-width:520px;
+    margin-bottom:28px;
+  }
+
+  /* ---------- Benefit bullets ---------- */
+  .benefits{
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    margin-bottom:32px;
+    max-width:560px;
+  }
+
+  @media (min-width:560px){
+    .benefits{ grid-template-columns:repeat(3,1fr); }
+  }
+
+  .benefit-item{
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    gap:12px;
+    background:var(--light-bg);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:14px;
+  }
+
+  @media (min-width:560px){
+    .benefit-item{ flex-direction:column; gap:10px; }
+  }
+
+  .benefit-icon{
+    flex:0 0 auto;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    background:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .benefit-icon svg{ width:22px; height:22px; }
+
+  .benefit-title{
+    font-weight:bold;
+    font-size:15px;
+    color:var(--black);
+  }
+
+  /* ---------- Hero visual placeholder ---------- */
+  .key-visual{
+    width:100%;
+    aspect-ratio:4/3;
+    max-height:520px;
+    border:2px dashed var(--purple);
+    border-radius:18px;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(142,35,108,0.04),
+        rgba(142,35,108,0.04) 12px,
+        rgba(255,207,123,0.08) 12px,
+        rgba(255,207,123,0.08) 24px
+      );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+    margin-bottom:8px;
+  }
+
+  .key-visual-label{
+    color:var(--purple);
+    font-weight:bold;
+    font-size:15px;
+    max-width:280px;
+  }
+
+  .key-visual-label small{
+    display:block;
+    font-weight:normal;
+    color:var(--gray-text);
+    font-size:12px;
+    margin-top:6px;
+  }
+
+  /* ---------- Right column / form ---------- */
+  .form-col{
+    flex:1 1 42%;
+    padding:8px 20px 40px;
+  }
+
+  @media (min-width:900px){
+    .form-col{
+      padding:12px 0 0;
+      max-width:420px;
+    }
+  }
+
+  .form-card{
+    background:var(--purple);
+    color:var(--white);
+    border-radius:20px;
+    padding:26px 22px 22px;
+    box-shadow:0 18px 40px rgba(142,35,108,0.25);
+  }
+
+  @media (min-width:900px){
+    .form-card{
+      position:sticky;
+      top:24px;
+    }
+  }
+
+  .form-card h2{
+    font-size:22px;
+    color:var(--white);
+    margin-bottom:6px;
+  }
+
+  .form-card .form-sub{
+    font-size:13px;
+    color:rgba(255,255,255,0.85);
+    margin-bottom:18px;
+  }
+
+  .field{
+    margin-bottom:12px;
+  }
+
+  .field label{
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:5px;
+    color:rgba(255,255,255,0.92);
+  }
+
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select{
+    width:100%;
+    padding:11px 12px;
+    border-radius:10px;
+    border:1px solid transparent;
+    background:var(--white);
+    color:var(--black);
+    font-size:14px;
+    font-family:Arial, Helvetica, sans-serif;
+    outline:none;
+  }
+
+  input:focus, select:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(255,207,123,0.45);
+  }
+
+  input.invalid, select.invalid{
+    border-color:#ff6b6b;
+    box-shadow:0 0 0 3px rgba(255,107,107,0.25);
+  }
+
+  .error-msg{
+    color:#ffe1e1;
+    font-size:11px;
+    margin-top:4px;
+    display:none;
+  }
+
+  .field.has-error .error-msg{ display:block; }
+
+  .consent{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    margin:16px 0 6px;
+  }
+
+  .consent input{
+    margin-top:3px;
+    width:16px;
+    height:16px;
+    accent-color:var(--gold);
+    flex:0 0 auto;
+  }
+
+  .consent label{
+    font-size:12px;
+    color:rgba(255,255,255,0.85);
+    line-height:1.4;
+  }
+
+  .cta-btn{
+    width:100%;
+    background:var(--gold);
+    color:var(--black);
+    border:none;
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:16px;
+    font-weight:bold;
+    font-family:"Arial Black", Arial, sans-serif;
+    cursor:pointer;
+    margin-top:8px;
+    transition:background 0.18s ease, transform 0.12s ease, color 0.18s ease;
+  }
+
+  .cta-btn:hover{
+    background:#ffb84d;
+    transform:translateY(-1px);
+  }
+
+  .cta-btn:active{
+    transform:translateY(0);
+  }
+
+  .eligibility-note{
+    font-size:11px;
+    color:rgba(255,255,255,0.7);
+    margin-top:12px;
+    line-height:1.5;
+  }
+
+  .success-msg{
+    display:none;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.35);
+    border-radius:10px;
+    padding:12px 14px;
+    font-size:13px;
+    margin-top:14px;
+  }
+
+  .success-msg.show{ display:block; }
+
+  /* ---------- Footer / trust ---------- */
+  .trust-footer{
+    border-top:1px solid var(--border);
+    background:var(--light-bg);
+    padding:28px 20px 40px;
+    text-align:center;
+  }
+
+  .trust-line{
+    font-size:12px;
+    color:var(--gray-text);
+    max-width:560px;
+    margin:0 auto 18px;
+  }
+
+  .logo-slots{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+
+  .logo-placeholder{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:44px;
+    padding:0 18px;
+    border:1px dashed #c9c1b7;
+    border-radius:8px;
+    background:var(--white);
+    color:#8a8378;
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wordmark">Gold<span>Now</span></div>
+    <div class="partner-tag">x A to Z Risk Management</div>
+  </header>
+
+  <main class="page">
+
+    <!-- LEFT: Value proposition -->
+    <section class="value-prop">
+      <span class="eyebrow"><span class="dot"></span> Car Insurance x Gold Rewards</span>
+
+      <h1 class="headline">Earn Gold When You <span class="accent">Renew</span> Your Car Insurance</h1>
+
+      <p class="subheadline">
+        Renew with A to Z Risk Management and get gold rewards credited straight to your GoldNow wallet.
+      </p>
+
+      <ul class="benefits">
+        <li class="benefit-item">
+          <span class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 1 3 6.7"/>
+              <path d="M3 12v6h6"/>
+            </svg>
+          </span>
+          <span class="benefit-title">Renew with Ease</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"/>
+              <path d="M12 8v8M9 10.5c0-1 1-1.5 3-1.5s3 .8 3 1.8-1 1.3-3 1.7-3 .8-3 1.9 1.3 1.6 3 1.6 3-.5 3-1.5"/>
+            </svg>
+          </span>
+          <span class="benefit-title">Earn Gold Rewards</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </span>
+          <span class="benefit-title">Drive with Confidence</span>
+        </li>
+      </ul>
+
+      <div class="key-visual">
+        <div class="key-visual-label">
+          KEY VISUAL — "Insurance Meets Gold" poster
+          <small>Poster asset (car + gold coins + phone mockup) to be dropped in here</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Lead capture form -->
+    <section class="form-col">
+      <div class="form-card">
+        <h2>Claim Your Gold Reward</h2>
+        <p class="form-sub">Fill in your details and our team will guide you through your renewal.</p>
+
+        <form id="leadForm" novalidate>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" required autocomplete="given-name" />
+              <div class="error-msg">Please enter your first name.</div>
+            </div>
+            <div class="field">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" required autocomplete="family-name" />
+              <div class="error-msg">Please enter your last name.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+            <div class="error-msg">Please enter a valid email address.</div>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="e.g. 012-3456789" />
+            <div class="error-msg">Please enter a valid phone number.</div>
+          </div>
+
+          <div class="field">
+            <label for="renewalDate">Car Insurance Renewal Date</label>
+            <input type="date" id="renewalDate" name="renewalDate" required />
+            <div class="error-msg">Please select your renewal date.</div>
+          </div>
+
+          <div class="field">
+            <label for="currentInsurer">Current Insurer</label>
+            <input type="text" id="currentInsurer" name="currentInsurer" required placeholder="e.g. AIA General Berhad" />
+            <div class="error-msg">Please enter your current insurer.</div>
+          </div>
+
+          <div class="field">
+            <label for="contactTime">Preferred Contact Time</label>
+            <select id="contactTime" name="contactTime" required>
+              <option value="" disabled selected>Select a time</option>
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="evening">Evening</option>
+            </select>
+            <div class="error-msg">Please select a preferred contact time.</div>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="consent" name="consent" />
+            <label for="consent">I agree to be contacted regarding this offer.</label>
+          </div>
+          <div class="field-msg error-msg" id="consentError" style="display:none;">Please agree to be contacted so we can reach you.</div>
+
+          <button type="submit" class="cta-btn">Claim My Gold Reward</button>
+
+          <p class="eligibility-note">
+            Eligible for sum insured of RM100,000 and above. Terms and conditions apply.
+          </p>
+
+          <div class="success-msg" id="successMsg">
+            Thanks! Your details have been captured. Our team will be in touch shortly.
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="trust-footer">
+    <p class="trust-line">
+      A to Z Risk Management is an authorized insurance agency under AIA General Berhad.
+    </p>
+    <div class="logo-slots">
+      <div class="logo-placeholder">A to Z Risk Management</div>
+      <div class="logo-placeholder">GoldNow</div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const successMsg = document.getElementById('successMsg');
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^[0-9+\-\s()]{7,20}$/;
+
+    function setFieldError(fieldEl, hasError){
+      const wrapper = fieldEl.closest('.field');
+      if(!wrapper) return;
+      if(hasError){
+        wrapper.classList.add('has-error');
+        fieldEl.classList.add('invalid');
+      } else {
+        wrapper.classList.remove('has-error');
+        fieldEl.classList.remove('invalid');
+      }
+    }
+
+    function validateForm(){
+      let isValid = true;
+
+      const requiredTextFields = ['firstName','lastName','currentInsurer'];
+      requiredTextFields.forEach(id => {
+        const el = document.getElementById(id);
+        const ok = el.value.trim().length > 0;
+        setFieldError(el, !ok);
+        if(!ok) isValid = false;
+      });
+
+      const emailEl = document.getElementById('email');
+      const emailOk = emailPattern.test(emailEl.value.trim());
+      setFieldError(emailEl, !emailOk);
+      if(!emailOk) isValid = false;
+
+      const phoneEl = document.getElementById('phone');
+      const phoneOk = phonePattern.test(phoneEl.value.trim());
+      setFieldError(phoneEl, !phoneOk);
+      if(!phoneOk) isValid = false;
+
+      const dateEl = document.getElementById('renewalDate');
+      const dateOk = dateEl.value.trim().length > 0;
+      setFieldError(dateEl, !dateOk);
+      if(!dateOk) isValid = false;
+
+      const contactEl = document.getElementById('contactTime');
+      const contactOk = contactEl.value.trim().length > 0;
+      setFieldError(contactEl, !contactOk);
+      if(!contactOk) isValid = false;
+
+      const consentEl = document.getElementById('consent');
+      const consentError = document.getElementById('consentError');
+      if(!consentEl.checked){
+        consentError.style.display = 'block';
+        isValid = false;
+      } else {
+        consentError.style.display = 'none';
+      }
+
+      return isValid;
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      successMsg.classList.remove('show');
+
+      if(!validateForm()){
+        return;
+      }
+
+      const data = {
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        renewalDate: document.getElementById('renewalDate').value,
+        currentInsurer: document.getElementById('currentInsurer').value.trim(),
+        contactTime: document.getElementById('contactTime').value,
+        consent: document.getElementById('consent').checked
+      };
+
+      console.log('Lead form submitted:', data);
+
+      successMsg.classList.add('show');
+      form.reset();
+    });
+
+    // Clear individual field errors as the user corrects them
+    form.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', () => setFieldError(el, false));
+      el.addEventListener('change', () => setFieldError(el, false));
+    });
+  </script>
+
+</body>
+</html>
