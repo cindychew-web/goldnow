@@ -320,12 +320,6 @@
     color:rgba(255,255,255,0.92);
   }
 
-  .field-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
-
   input[type="text"],
   input[type="email"],
   input[type="tel"],
@@ -479,7 +473,7 @@
       <h1 class="headline">Earn Gold When You <span class="accent">Renew</span> Your Car Insurance</h1>
 
       <p class="subheadline">
-        Renew with A to Z Risk Management — part of AIA General Berhad — and get gold rewards credited straight to your GoldNow wallet.
+        Renew with A to Z Risk Management, an authorized representative of AIA General Berhad, and get gold rewards credited straight to your GoldNow account.
       </p>
 
       <div class="key-visual" role="img" aria-label="Insurance Meets Gold: earn gold when you renew car insurance">
@@ -491,7 +485,7 @@
         <div class="kv-coin" style="width:22px;height:22px;top:64%;left:5%;opacity:0.7;"></div>
 
         <h3 class="kv-headline">Insurance Meets <span class="kv-gold">Gold</span></h3>
-        <p class="kv-sub">Earn gold when you renew your car insurance — credited straight to your GoldNow wallet.</p>
+        <p class="kv-sub">Earn gold when you renew your car insurance — credited straight to your GoldNow account.</p>
 
         <div class="kv-phone" aria-hidden="true">
           <div class="kv-phone-notch"></div>
@@ -521,21 +515,14 @@
     <!-- RIGHT: Lead capture form -->
     <section class="form-col">
       <div class="form-card">
-        <p class="form-sub">Fill in your details and our team will guide you through your renewal.</p>
+        <p class="form-sub">Find out more and we will contact you.</p>
 
         <form id="leadForm" novalidate>
 
-          <div class="field-row">
-            <div class="field">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" required autocomplete="given-name" />
-              <div class="error-msg">Please enter your first name.</div>
-            </div>
-            <div class="field">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" required autocomplete="family-name" />
-              <div class="error-msg">Please enter your last name.</div>
-            </div>
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required autocomplete="given-name" />
+            <div class="error-msg">Please enter your first name.</div>
           </div>
 
           <div class="field">
@@ -550,12 +537,6 @@
             <div class="error-msg">Please enter a valid phone number.</div>
           </div>
 
-          <div class="field">
-            <label for="renewalDate">Car Insurance Renewal Date</label>
-            <input type="date" id="renewalDate" name="renewalDate" required />
-            <div class="error-msg">Please select your renewal date.</div>
-          </div>
-
           <div class="consent">
             <input type="checkbox" id="consent" name="consent" />
             <label for="consent">I agree to be contacted regarding this offer.</label>
@@ -566,6 +547,10 @@
 
           <p class="eligibility-note">
             Eligible for sum insured of RM100,000 and above. Terms and conditions apply.
+          </p>
+
+          <p class="eligibility-note">
+            By submitting this form, you consent to A to Z Risk Management and GoldNow collecting, using, and disclosing your personal data in accordance with the Personal Data Protection Act (PDPA) 2010.
           </p>
 
           <div class="success-msg" id="successMsg">
@@ -579,7 +564,7 @@
 
   <footer class="trust-footer">
     <p class="trust-line">
-      A to Z Risk Management is an authorized insurance agency under AIA General Berhad.
+      A to Z Risk Management is an authorized representative of AIA General Berhad.
     </p>
     <div class="logo-slots">
       <div class="logo-placeholder">A to Z Risk Management</div>
@@ -609,7 +594,7 @@
     function validateForm(){
       let isValid = true;
 
-      const requiredTextFields = ['firstName','lastName'];
+      const requiredTextFields = ['firstName'];
       requiredTextFields.forEach(id => {
         const el = document.getElementById(id);
         const ok = el.value.trim().length > 0;
@@ -626,11 +611,6 @@
       const phoneOk = phonePattern.test(phoneEl.value.trim());
       setFieldError(phoneEl, !phoneOk);
       if(!phoneOk) isValid = false;
-
-      const dateEl = document.getElementById('renewalDate');
-      const dateOk = dateEl.value.trim().length > 0;
-      setFieldError(dateEl, !dateOk);
-      if(!dateOk) isValid = false;
 
       const consentEl = document.getElementById('consent');
       const consentError = document.getElementById('consentError');
@@ -654,10 +634,8 @@
 
       const data = {
         firstName: document.getElementById('firstName').value.trim(),
-        lastName: document.getElementById('lastName').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: document.getElementById('phone').value.trim(),
-        renewalDate: document.getElementById('renewalDate').value,
         consent: document.getElementById('consent').checked
       };
 
