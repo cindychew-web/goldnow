@@ -190,42 +190,160 @@
     color:var(--black);
   }
 
-  /* ---------- Hero visual placeholder ---------- */
+  /* ---------- Hero key visual ---------- */
   .key-visual{
+    position:relative;
     width:100%;
     aspect-ratio:4/3;
     max-height:520px;
-    border:2px dashed var(--purple);
     border-radius:18px;
+    overflow:hidden;
     background:
-      repeating-linear-gradient(
-        45deg,
-        rgba(142,35,108,0.04),
-        rgba(142,35,108,0.04) 12px,
-        rgba(255,207,123,0.08) 12px,
-        rgba(255,207,123,0.08) 24px
-      );
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+      radial-gradient(circle at 85% 12%, rgba(255,207,123,0.35), transparent 42%),
+      linear-gradient(150deg, #fbeaf5 0%, #f7ecf5 32%, #fdf4e6 68%, #fff 100%);
     padding:24px;
     margin-bottom:8px;
   }
 
-  .key-visual-label{
-    color:var(--purple);
-    font-weight:bold;
-    font-size:15px;
-    max-width:280px;
+  .kv-coin{
+    position:absolute;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fff2d6, var(--gold) 55%, #e0a84f 100%);
+    box-shadow:0 6px 14px rgba(142,35,108,0.18), inset 0 -3px 5px rgba(150,90,10,0.25);
   }
 
-  .key-visual-label small{
-    display:block;
-    font-weight:normal;
+  .kv-headline{
+    position:relative;
+    z-index:2;
+    font-family:"Arial Black", Arial, sans-serif;
+    font-weight:900;
+    line-height:1.05;
+    font-size:clamp(22px, 4.6vw, 38px);
+    color:var(--black);
+    max-width:52%;
+  }
+
+  .kv-headline .kv-gold{
+    color:#c98a10;
+    background:linear-gradient(100deg, #a06a08 0%, #e0a020 30%, var(--gold) 55%, #a06a08 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+
+  .kv-sub{
+    position:relative;
+    z-index:2;
+    font-size:clamp(11px, 2.4vw, 13px);
     color:var(--gray-text);
-    font-size:12px;
-    margin-top:6px;
+    max-width:46%;
+    margin-top:10px;
+    line-height:1.4;
+  }
+
+  /* Phone mockup */
+  .kv-phone{
+    position:absolute;
+    z-index:3;
+    right:6%;
+    bottom:6%;
+    width:44%;
+    max-width:190px;
+    aspect-ratio:9/17.5;
+    background:linear-gradient(180deg,#241026,#3a1338 55%,#5c1749);
+    border-radius:22px;
+    padding:5%;
+    box-shadow:0 20px 40px rgba(60,10,45,0.35), 0 0 0 3px rgba(255,255,255,0.08) inset;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .kv-phone-notch{
+    width:26%;
+    height:5px;
+    border-radius:4px;
+    background:rgba(255,255,255,0.25);
+    margin:0 auto 10%;
+  }
+
+  .kv-phone-label{
+    color:rgba(255,255,255,0.85);
+    font-size:8.5px;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:6%;
+  }
+
+  .kv-gift-card{
+    background:linear-gradient(160deg, #ffe9bd, var(--gold) 45%, #e2a94e);
+    border-radius:10px;
+    padding:9% 8%;
+    text-align:center;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  }
+
+  .kv-gift-amount{
+    font-family:"Arial Black", Arial, sans-serif;
+    font-weight:900;
+    font-size:14px;
+    color:#3a2205;
+  }
+
+  .kv-gift-from{
+    font-size:7px;
+    color:#5c4212;
+    margin-top:2px;
+  }
+
+  .kv-gift-code{
+    font-size:6.5px;
+    color:#6b4d15;
+    margin-top:8%;
+    letter-spacing:0.03em;
+  }
+
+  .kv-share-btn{
+    margin-top:auto;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.4);
+    color:#fff;
+    font-size:8px;
+    font-weight:bold;
+    border-radius:20px;
+    padding:6% 0;
+    text-align:center;
+  }
+
+  /* Car + shield badge */
+  .kv-badge{
+    position:absolute;
+    z-index:2;
+    left:24px;
+    bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .kv-badge-icon{
+    width:38px;
+    height:38px;
+    flex:0 0 auto;
+    border-radius:50%;
+    background:var(--purple);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .kv-badge-icon svg{ width:20px; height:20px; }
+
+  .kv-badge-text{
+    font-size:11px;
+    font-weight:bold;
+    color:var(--purple);
+    max-width:120px;
+    line-height:1.3;
   }
 
   /* ---------- Right column / form ---------- */
@@ -474,10 +592,38 @@
         </li>
       </ul>
 
-      <div class="key-visual">
-        <div class="key-visual-label">
-          KEY VISUAL — "Insurance Meets Gold" poster
-          <small>Poster asset (car + gold coins + phone mockup) to be dropped in here</small>
+      <div class="key-visual" role="img" aria-label="Insurance Meets Gold: earn gold when you renew car insurance">
+        <div class="kv-coin" style="width:34px;height:34px;top:14%;right:34%;"></div>
+        <div class="kv-coin" style="width:20px;height:20px;top:8%;right:20%;"></div>
+        <div class="kv-coin" style="width:16px;height:16px;top:34%;left:8%;"></div>
+        <div class="kv-coin" style="width:30px;height:30px;top:54%;left:20%;"></div>
+        <div class="kv-coin" style="width:18px;height:18px;top:40%;left:42%;opacity:0.85;"></div>
+        <div class="kv-coin" style="width:22px;height:22px;top:64%;left:5%;opacity:0.7;"></div>
+
+        <h3 class="kv-headline">Insurance Meets <span class="kv-gold">Gold</span></h3>
+        <p class="kv-sub">Earn gold when you renew your car insurance — credited straight to your GoldNow wallet.</p>
+
+        <div class="kv-phone" aria-hidden="true">
+          <div class="kv-phone-notch"></div>
+          <div class="kv-phone-label">Your gold gift is ready!</div>
+          <div class="kv-gift-card">
+            <div class="kv-gift-amount">0.1g Gold</div>
+            <div class="kv-gift-from">From Cindy Chew</div>
+            <div class="kv-gift-code">GN-482913 &middot; Expires 31 Aug 2026</div>
+          </div>
+          <div class="kv-share-btn">Share Code &#8599;</div>
+        </div>
+
+        <div class="kv-badge" aria-hidden="true">
+          <span class="kv-badge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13"/>
+              <path d="M3 13v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-4"/>
+              <circle cx="7.5" cy="14.5" r="1.2"/>
+              <circle cx="16.5" cy="14.5" r="1.2"/>
+            </svg>
+          </span>
+          <span class="kv-badge-text">Comprehensive coverage, renewed effortlessly</span>
         </div>
       </div>
     </section>
